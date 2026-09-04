@@ -229,7 +229,7 @@
         '<td data-l="Этаж" class="r mono">' + r.f + '</td>' +
         '<td data-l="Назначение" style="color:var(--ink2)">' + USE_NAMES[r.u] + '</td>' +
         '<td data-l="Статус">' + badge(r.hold) + '</td>' +
-        '<td class="r"><span class="btn btn-s btn-sm auto">Смотреть</span></td></tr>';
+        '<td class="r">→</td></tr>';
     }
 
     function tile(r) {

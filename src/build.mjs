@@ -506,7 +506,7 @@ function buildObject(o) {
       <td data-l="Этаж" class="r mono">${r.f}</td>
       <td data-l="Назначение" style="color:var(--ink2)">${USE_NAMES[r.u]}</td>
       <td data-l="Статус"><span class="badge ${r.hold ? 'badge-hold' : 'badge-free'}">${r.hold ? 'бронь' : 'свободно'}</span></td>
-      <td class="r"><span class="btn btn-s btn-sm auto">Смотреть</span></td>
+      <td class="r">→</td>
     </tr>`).join('');
 
   const body = `
@@ -575,7 +575,7 @@ function buildObject(o) {
     <p class="small" style="margin-top:8px">Обновлено ${SITE.updated}</p></div>
     <a class="cap gold" href="spaces.html">Весь каталог сети →</a></div>
   <table class="tbl"><thead><tr>
-    <th>Код</th><th>Помещение</th><th class="r">Площадь</th><th class="r">Этаж</th><th>Назначение</th><th>Статус</th><th class="r">Действие</th>
+    <th>Код</th><th>Помещение</th><th class="r">Площадь</th><th class="r">Этаж</th><th>Назначение</th><th>Статус</th><th></th>
   </tr></thead><tbody>${spacesRows}</tbody></table>
 </section>
 
@@ -655,7 +655,6 @@ function buildSpaces() {
     <div class="fgroup"><div class="cap" style="margin-bottom:10px">Площадка</div>${siteOpts}</div>
     <div class="fgroup"><div class="cap" style="margin-bottom:10px">Назначение</div>${useOpts}</div>
     <div class="fgroup"><div class="cap" style="margin-bottom:10px">Площадь, м²</div>
-      <div class="row" style="gap:8px;margin-bottom:12px"><input class="fld" style="height:42px" placeholder="от"><input class="fld" style="height:42px" placeholder="до"></div>
       <div style="display:flex;flex-wrap:wrap;gap:6px">
         <button class="chip chip-sm on" data-f-area="any">любая</button>
         <button class="chip chip-sm" data-f-area="s">до 30</button>
@@ -663,22 +662,16 @@ function buildSpaces() {
         <button class="chip chip-sm" data-f-area="l">100—500</button>
         <button class="chip chip-sm" data-f-area="xl">от 500</button>
       </div></div>
-    <div class="fgroup"><div class="cap" style="margin-bottom:10px">Что важно</div>
-      <button class="opt" data-f-ready><span class="box">✓</span><span>Заехать сразу</span><span class="n" data-count-ready></span></button>
-      <button class="opt" data-f-hold><span class="box">✓</span><span>Скрыть бронь</span><span class="n">2</span></button>
-    </div>
-    <div style="background:var(--brand-dk);color:#fff;border-radius:var(--r3);padding:24px;margin-top:22px">
-      <div class="h4" style="color:#fff">Не нашли подходящее?</div>
-      <p class="small" style="color:rgba(255,255,255,.68);margin-top:10px">Помещения освобождаются каждый месяц. Опишите задачу: подберём вручную, в том числе из того, что ещё не выложено.</p>
-      <a class="btn btn-g btn-block" style="margin-top:16px" href="#podbor">Оставить заявку</a>
-    </div>
     </div>
   </aside>
 
   <div class="grow">
-    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;padding-bottom:16px;border-bottom:2px solid var(--brand);flex-wrap:wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px 24px;padding-bottom:16px;border-bottom:2px solid var(--brand);flex-wrap:wrap;min-width:0">
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap" data-k-chips></div>
-      <div style="display:flex;align-items:center;gap:18px;flex-shrink:0;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap;min-width:0">
+        <div style="display:flex;align-items:center;gap:8px">
+          <button class="chip chip-sm" data-f-ready>Заехать сразу <span class="n" data-count-ready></span></button>
+          <button class="chip chip-sm" data-f-hold>Без брони <span class="n">2</span></button></div>
         <div style="display:flex;align-items:center;gap:8px"><span class="cap">Сортировка</span>
           <button class="chip chip-sm on" data-f-sort="area-asc">площадь ↑</button>
           <button class="chip chip-sm" data-f-sort="area-desc">площадь ↓</button>
@@ -699,14 +692,20 @@ function buildSpaces() {
 
     <table class="tbl"><thead><tr>
       <th>Код</th><th>Помещение</th><th class="r">Площадь</th><th class="r">Этаж</th>
-      <th>Назначение</th><th>Статус</th><th class="r">Действие</th>
+      <th>Назначение</th><th>Статус</th><th></th>
     </tr></thead><tbody data-k-list></tbody></table>
 
     <div class="g3 hide" data-k-grid style="margin-top:26px"></div>
     <div class="hide" data-k-more style="display:flex;justify-content:center;margin-top:28px">
       <button class="btn btn-s auto">Показать ещё <span>18</span></button></div>
 
-    <div id="podbor" style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:48px;padding:30px 34px;background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);flex-wrap:wrap">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:48px;padding:28px 32px;background:var(--brand-dk);color:#fff;border-radius:var(--r3);flex-wrap:wrap">
+      <div style="max-width:62ch"><div class="h4" style="color:#fff">Не нашли подходящее?</div>
+        <p class="small" style="color:rgba(255,255,255,.68);margin-top:8px">Помещения освобождаются каждый месяц. Опишите задачу: подберём вручную, в том числе из того, что ещё не выложено.</p></div>
+      <a class="btn btn-g auto" style="flex-shrink:0" href="#podbor">Оставить заявку</a>
+    </div>
+
+    <div id="podbor" style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:30px 34px;background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);flex-wrap:wrap">
       <div><div class="h4">Узнавать о новых помещениях первым</div>
         <p class="small" style="margin-top:8px">Подписка на рассылку предложений сети. Пишем, только когда освобождается подходящее.</p></div>
       <form class="row" style="flex-shrink:0;min-width:400px" data-form="sub">
