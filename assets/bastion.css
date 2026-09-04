@@ -154,15 +154,22 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .topbar a:hover{color:var(--gold)}
 .topbar-in{display:flex;justify-content:space-between;gap:20px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
 .hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
-.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:88px}
-.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
-.logo-crest{height:38px;width:auto;flex-shrink:0;display:block}
-.logo-txt{display:flex;flex-direction:column;line-height:1}
-.logo-txt b{font-family:var(--disp);font-size:20px;font-weight:700;letter-spacing:.14em;color:var(--brand-dk)}
-.logo-txt i{font-style:normal;font-family:var(--sans);font-size:7.5px;font-weight:600;letter-spacing:.235em;color:var(--ink3);margin-top:6px;white-space:nowrap}
-.ftr .logo-txt b{color:var(--gold)}
-.ftr .logo-txt i{color:rgba(255,255,255,.5)}
-.ftr .logo-crest{height:52px}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:96px}
+/* Логотип повторяет композицию оригинала: герб, под ним слово, под ним подпись */
+.logo{display:inline-flex;flex-direction:column;align-items:center;gap:5px;flex-shrink:0;line-height:1}
+.logo-crest{height:31px;width:auto;flex-shrink:0;display:block}
+.logo-txt{display:flex;flex-direction:column;align-items:center;line-height:1}
+.logo-txt b{font-family:var(--disp);font-size:19px;font-weight:700;letter-spacing:.15em;color:var(--brand-dk);text-indent:.15em}
+.logo-txt i{
+  font-style:normal;font-family:var(--sans);font-size:6.5px;font-weight:600;letter-spacing:.225em;
+  color:var(--ink3);margin-top:5px;padding-top:4px;white-space:nowrap;text-indent:.225em;
+  border-top:1px solid var(--line);align-self:stretch;text-align:center;
+}
+.ftr .logo{align-items:flex-start}
+.ftr .logo-txt{align-items:flex-start}
+.ftr .logo-crest{height:46px}
+.ftr .logo-txt b{color:var(--gold);font-size:26px}
+.ftr .logo-txt i{color:rgba(255,255,255,.45);font-size:8.5px;border-top-color:rgba(255,255,255,.16)}
 .nav{display:flex;gap:17px;flex-shrink:1;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
 .nav a{color:var(--ink2)}
 .nav a:hover{color:var(--brand)}
@@ -272,8 +279,8 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .split>.grow{grid-column:span 8;min-width:0}
 .split>.side{grid-column:span 4;width:auto}
 .split>.side-sm{grid-column:span 3;width:auto}
-.split>.side-sm.sticky{position:sticky;top:108px;align-self:start}
-.sticky-side{max-height:calc(100vh - 132px);overflow-y:auto;overscroll-behavior:contain;padding-right:6px}
+.split>.side-sm.sticky{position:sticky;top:116px;align-self:start}
+.sticky-side{max-height:calc(100vh - 140px);overflow-y:auto;overscroll-behavior:contain;padding-right:6px}
 .sticky-side::-webkit-scrollbar{width:6px}
 .sticky-side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 .split>.side-xs{grid-column:span 2;width:auto}
@@ -351,8 +358,11 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
   .h3{font-size:19px}
   .sec{padding-top:48px;padding-bottom:48px}
   .sec-tight{padding-top:40px;padding-bottom:40px}
-  .hdr-in{height:72px}
-  .logo img{height:42px}
+  .hdr-in{height:78px}
+  .logo-crest{height:26px}
+  .logo-txt b{font-size:16px}
+  .logo-txt i{font-size:5.5px}
+  .logo-crest{height:26px}
   .g2>*,.g3>*,.g4>*,.g6>*{grid-column:span 12}
   .ftr-col{grid-column:span 6}
   .stats{gap:20px 32px}
