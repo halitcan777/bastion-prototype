@@ -12,11 +12,10 @@ const OUT = path.resolve(HERE, '..');
 
 const NAV = [
   ['objects.html', 'Площадки'],
-  ['spaces.html', 'Свободные площади'],
+  ['spaces.html', 'Площади'],
   ['sale.html', 'Продажа'],
   ['tenants.html', 'Арендаторам'],
   ['about.html', 'О сети'],
-  ['news.html', 'Новости'],
   ['contacts.html', 'Контакты']
 ];
 
@@ -56,10 +55,7 @@ function header(active) {
   <a class="logo" href="index.html"><img src="assets/logo.svg" alt="БАСТИОН — сеть бизнес-центров" width="152" height="97"></a>
   <nav class="nav">${nav}</nav>
   <div style="display:flex;align-items:center;gap:18px">
-    <div class="hdr-cta" style="text-align:right">
-      <a class="mono" href="tel:${SITE.phoneHref}" style="font-size:17px;font-weight:600;color:var(--brand-dk)">${SITE.phone}</a>
-      <div class="cap" style="font-size:11px">${SITE.hours}</div>
-    </div>
+    <a class="mono hdr-cta" href="tel:${SITE.phoneHref}" style="font-size:18px;font-weight:600;color:var(--brand-dk);white-space:nowrap">${SITE.phone}</a>
     <a class="btn btn-g auto hdr-cta" href="spaces.html">Подобрать</a>
     <button class="burger" data-burger aria-label="Меню"><i></i><i></i><i></i></button>
   </div>
@@ -112,7 +108,7 @@ function page({ file, title, desc, active, crumbs = '', body, sticky }) {
 <meta property="og:type" content="website">
 <meta property="og:image" content="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Oswald:wght@400;500;600&family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
 <link rel="stylesheet" href="assets/bastion.css">
 </head>
 <body>
@@ -191,8 +187,8 @@ function buildIndex() {
           <span class="badge badge-free" style="flex-shrink:0">${SPACES.filter(s => s.s === o.id).length} свободно</span>
         </div>
         <p class="small" style="margin-top:14px">${o.lead}</p>
-        <div class="g4">
-          ${o.figures.slice(0, 4).map(([n, l]) => `<div><div class="mono" style="font-size:19px;font-weight:600;color:var(--brand)">${n}</div><div class="cap" style="font-size:10px;margin-top:3px">${l}</div></div>`).join('')}
+        <div class="figs" style="margin-top:22px;padding-top:22px;border-top:1px solid var(--line2)">
+          ${o.figures.slice(0, 4).map(([n, l]) => `<div class="fig"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('')}
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px">
           <span class="small">${o.transport[0][0]} — ${o.transport[0][1]}</span>
@@ -242,36 +238,34 @@ function buildIndex() {
     </div>`).join('');
 
   const body = `
-<section class="wrap sec">
+<section class="wrap sec" style="padding-bottom:56px">
   <div class="split">
-    <div class="side">
-      <hr class="rule-gold">
-      <h1 class="d1">Производство, склад<br>и офис на одной<br>территории</h1>
-      <p class="lead" style="margin-top:22px">Четыре площадки на севере Петербурга. Корпуса сообщаются цельными этажами: цех, склад и отдел продаж стоят рядом. Разносить бизнес по трём адресам не придётся.</p>
-      <div class="stats" style="margin-top:40px">
-        <div><div class="stat-n">55 800</div><div class="cap" style="margin-top:8px">м² в сети</div></div>
-        <div><div class="stat-n">4</div><div class="cap" style="margin-top:8px">площадки</div></div>
-        <div><div class="stat-n">${SPACES.length}</div><div class="cap" style="margin-top:8px">свободно</div></div>
-        <div><div class="stat-n">5—1800</div><div class="cap" style="margin-top:8px">м² помещения</div></div>
+    <div class="grow" style="grid-column:span 7">
+      <div class="cap">Сеть бизнес-центров · Санкт-Петербург</div>
+      <h1 class="d1" style="margin-top:14px">Производство, склад<br>и офис на одной территории</h1>
+      <p class="lead" style="margin-top:20px;max-width:54ch">Сдаём офисы, склады, производственные и торговые помещения на четырёх площадках в Выборгском и Калининском районах. Корпуса сообщаются цельными этажами: цех, склад и отдел продаж стоят рядом.</p>
+      <div class="figs" style="margin-top:34px;padding-top:26px;border-top:1px solid var(--line)">
+        <div class="fig"><div class="n" style="font-size:24px">10—200</div><div class="l">м² офисы</div></div>
+        <div class="fig"><div class="n" style="font-size:24px">40—500</div><div class="l">м² склад, произв.</div></div>
+        <div class="fig"><div class="n" style="font-size:24px">55 800</div><div class="l">м² в сети</div></div>
+        <div class="fig"><div class="n" style="font-size:24px">${SPACES.length}</div><div class="l">свободно</div></div>
       </div>
-      <div class="row" style="margin-top:40px">
+      <div class="row" style="margin-top:30px">
         <a class="btn btn-p btn-lg" href="spaces.html">Свободные площади</a>
         <a class="btn btn-s btn-lg" href="#zayavka">Записаться на просмотр</a>
       </div>
     </div>
-    <div class="grow">
-      <div class="map" data-map>
+    <div class="side" style="grid-column:span 5">
+      <div class="map" data-map style="height:330px">
         <div class="map-kad"></div>
-        <div class="map-road" style="left:-10%;top:30%;width:120%;height:1px;transform:rotate(-4deg)"></div>
-        <div class="map-road" style="left:-10%;top:62%;width:120%;height:1px;transform:rotate(3deg)"></div>
-        <div class="map-road" style="left:34%;top:-10%;width:1px;height:120%;transform:rotate(9deg)"></div>
-        <div class="map-road" style="left:72%;top:-10%;width:1px;height:120%;transform:rotate(-7deg)"></div>
+        <div class="map-road" style="left:-10%;top:33%;width:120%;height:1px;transform:rotate(-4deg)"></div>
+        <div class="map-road" style="left:-10%;top:66%;width:120%;height:1px;transform:rotate(3deg)"></div>
+        <div class="map-road" style="left:38%;top:-10%;width:1px;height:120%;transform:rotate(9deg)"></div>
         <div class="map-neva"></div>
-        <div class="cap" style="position:absolute;left:4%;bottom:4%">Нева</div>
-        <div class="cap" style="position:absolute;right:5%;top:6%">КАД</div>
-        <div class="map-card" data-map-card></div>
+        <div class="cap" style="position:absolute;left:6%;bottom:6%">Нева</div>
+        <div class="cap" style="position:absolute;right:7%;top:8%">КАД</div>
       </div>
-      <p class="small" style="margin-top:14px">Схема расположения. Нажмите точку или наведите на карточку площадки ниже.</p>
+      <div class="card" style="margin-top:16px" data-map-card></div>
     </div>
   </div>
 </section>
@@ -312,14 +306,17 @@ function buildIndex() {
       <a class="btn btn-s auto" style="margin-top:28px" href="about.html">О сети подробнее</a>
     </div>
     <div class="grow g4">
-      ${[['Производство', '40—500 м²', 'отдельные корпуса, свободные мощности'],
-         ['Склад', '40—500 м²', 'грузовой лифт, разгрузка во дворе'],
-         ['Офис', '10—200 м²', 'этажом выше, кабинет или свободная планировка'],
-         ['Отгрузка', 'охраняемый двор', 'въезд для крупногабаритного транспорта']]
-        .map(([t, n, d], i) => `<div class="card pad" style="background:#fff">
-          <div class="cap">Этап ${i + 1}</div><div class="h4" style="margin-top:12px">${t}</div>
-          <div class="mono" style="font-size:15px;color:var(--brand);margin-top:10px">${n}</div>
-          <p class="small" style="margin-top:8px">${d}</p></div>`).join('')}
+      ${[['Производство', '40—500 м²', 'Отдельные корпуса, свободные мощности'],
+         ['Склад', '40—500 м²', 'Грузовой лифт, разгрузка во дворе'],
+         ['Офис', '10—200 м²', 'Этажом выше, кабинет или опенспейс'],
+         ['Отгрузка', 'Охраняемый двор', 'Въезд для фуры, охрана 24 часа']]
+        .map(([t, n, d], i) => `<div class="card" style="background:#fff">
+          <div class="pad" style="display:flex;flex-direction:column">
+            <div class="cap">Этап ${i + 1}</div>
+            <div class="h4" style="margin-top:12px">${t}</div>
+            <div class="mono" style="font-size:16px;font-weight:600;color:var(--brand);margin-top:12px">${n}</div>
+            <p class="small" style="margin:10px 0 0">${d}</p>
+          </div></div>`).join('')}
     </div>
   </div>
 </section>
@@ -423,8 +420,8 @@ function buildObjects() {
           <span class="badge badge-free" style="flex-shrink:0">${SPACES.filter(s => s.s === o.id).length} свободно</span>
         </div>
         <p style="margin-top:16px;max-width:60ch">${o.lead}</p>
-        <div class="g4">
-          ${o.figures.slice(0, 4).map(([n, l]) => `<div><div class="mono" style="font-size:21px;font-weight:600;color:var(--brand)">${n}</div><div class="cap" style="font-size:10px;margin-top:3px">${l}</div></div>`).join('')}
+        <div class="figs" style="margin-top:24px;padding-top:24px;border-top:1px solid var(--line2)">
+          ${o.figures.slice(0, 4).map(([n, l]) => `<div class="fig"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('')}
         </div>
         <div class="row" style="margin-top:26px">
           <a class="btn btn-p auto" href="${o.slug}.html">О площадке</a>
@@ -521,7 +518,7 @@ function buildObject(o) {
       <h1 class="h1" style="margin-top:10px">${o.name}</h1>
       <p class="lead" style="margin-top:12px">${o.addr}</p>
       <div class="statbox" style="margin-top:26px">
-        ${o.figures.slice(0, 4).map(([n, l]) => `<div><div class="mono" style="font-size:25px;font-weight:600;color:var(--brand)">${n}</div><div class="cap" style="margin-top:5px">${l}</div></div>`).join('')}
+        ${o.figures.slice(0, 4).map(([n, l]) => `<div class="fig"><div class="n">${n}</div><div class="l">${l}</div></div>`).join('')}
       </div>
       <div style="background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r2) var(--r2);padding:22px;margin-top:18px">
         <div class="cap">Ставка аренды</div>

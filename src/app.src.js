@@ -119,17 +119,17 @@
     function paint(s) {
       if (!card) return;
       card.innerHTML =
-        '<div class="cap">' + s.district + '</div>' +
-        '<div class="h4" style="margin-top:8px">' + s.name + '</div>' +
-        '<div style="display:flex;gap:22px;margin-top:18px;padding-top:18px;border-top:1px solid var(--line2)">' +
-          s.figures.map(function (f) { return cell(f[0], f[1]); }).join('') + cell(s.free, 'свободно') +
-        '</div>' +
-        '<p class="small" style="margin-top:14px">' + s.metro + '</p>' +
-        '<a class="btn btn-s btn-sm auto" style="margin-top:16px;width:100%" href="' + s.slug + '.html">Смотреть площадку →</a>';
+        '<div class="pad">' +
+          '<div class="cap">' + s.district + '</div>' +
+          '<div class="h4" style="margin-top:8px">' + s.name + '</div>' +
+          '<div class="figs" style="margin-top:18px;padding-top:18px;border-top:1px solid var(--line2)">' +
+            s.figures.slice(0, 3).map(function (f) { return cell(f[0], f[1]); }).join('') + cell(s.free, 'свободно') +
+          '</div>' +
+          '<a class="btn btn-s btn-sm auto" style="margin-top:18px;width:100%" href="' + s.slug + '.html">Смотреть площадку →</a>' +
+        '</div>';
     }
     function cell(n, l) {
-      return '<div><div class="mono" style="font-size:18px;font-weight:600;color:var(--brand)">' + n +
-        '</div><div class="cap" style="font-size:10px">' + l + '</div></div>';
+      return '<div class="fig"><div class="n">' + n + '</div><div class="l">' + l + '</div></div>';
     }
     function select(id) {
       $$('.pin', map).forEach(function (p) { p.classList.toggle('on', p.getAttribute('data-pin') === id); });
@@ -141,7 +141,7 @@
     SITES.forEach(function (s) {
       var pin = document.createElement('button');
       pin.type = 'button';
-      pin.className = 'pin';
+      pin.className = 'pin' + (s.x > 55 ? ' flip' : '');
       pin.setAttribute('data-pin', s.id);
       pin.style.left = s.x + '%';
       pin.style.top = s.y + '%';
