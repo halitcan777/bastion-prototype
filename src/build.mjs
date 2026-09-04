@@ -52,7 +52,10 @@ function header(active) {
   <span>Отдел аренды <a class="mono" href="tel:${SITE.rentHref}">${SITE.rent}</a></span>
 </div></div>
 <header class="hdr"><div class="wrap hdr-in">
-  <a class="logo" href="index.html"><img src="assets/logo.svg" alt="БАСТИОН — сеть бизнес-центров" width="152" height="97"></a>
+  <a class="logo" href="index.html">
+    <img class="logo-crest" src="assets/crest-brand.svg" alt="" width="81" height="44">
+    <span class="logo-txt"><b>БАСТИОН</b><i>сеть бизнес-центров</i></span>
+  </a>
   <nav class="nav">${nav}</nav>
   <div style="display:flex;align-items:center;gap:18px">
     <a class="mono hdr-cta" href="tel:${SITE.phoneHref}" style="font-size:18px;font-weight:600;color:var(--brand-dk);white-space:nowrap">${SITE.phone}</a>
@@ -71,8 +74,9 @@ function footer() {
 <footer class="ftr"><div class="wrap">
   <div class="ftr-cols">
     <div class="ftr-brand">
-      <img src="assets/logo-gold.svg" alt="БАСТИОН" width="164" height="105">
-      <p style="margin-top:18px">Сеть офисно-производственных комплексов класса C+ в Санкт-Петербурге.</p>
+      <span class="logo"><img class="logo-crest" src="assets/crest-gold.svg" alt="" width="96" height="52">
+        <span class="logo-txt"><b>БАСТИОН</b><i>сеть бизнес-центров</i></span></span>
+      <p style="margin-top:20px">Сеть офисно-производственных комплексов класса C+ в Санкт-Петербурге.</p>
       <p><a href="${SITE.presentation}" target="_blank" rel="noopener">Скачать презентацию сети (PDF)</a></p>
     </div>
     <div class="ftr-col"><div class="cap" style="margin-bottom:14px">Площадки</div><div class="ftr-list">${objs}</div></div>
@@ -496,7 +500,7 @@ function buildObject(o) {
 
   const spacesRows = own.map(r => `
     <tr class="${r.hold ? 'hold' : ''}" onclick="location.href='space.html'">
-      <td data-l="Код" class="mono" style="color:var(--ink3);font-size:13px">${r.id}</td>
+      <td data-l="Код" class="mono code" style="color:var(--ink3)">${r.id}</td>
       <td data-l="Помещение" style="font-weight:700">${r.t}</td>
       <td data-l="Площадь" class="r num">${fmt(r.a)}</td>
       <td data-l="Этаж" class="r mono">${r.f}</td>
@@ -635,15 +639,15 @@ function buildSpaces() {
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
     <div><hr class="rule-gold"><h1 class="h1">Свободные площади</h1>
       <p class="lead prose" style="margin-top:14px">Офисы, склады, производство, торговля и земельные участки на четырёх площадках. От 5 до 1800 м².</p></div>
-    <div style="text-align:right;flex-shrink:0">
-      <div class="stat-n" data-k-total>${SPACES.length}</div>
-      <div class="cap" style="margin-top:6px">найдено · обновлено ${SITE.updated}</div>
+    <div style="flex-shrink:0;display:flex;align-items:baseline;gap:12px;padding-bottom:6px">
+      <span class="stat-n" data-k-total>${SPACES.length}</span>
+      <span class="cap">помещений свободно<br>обновлено ${SITE.updated}</span>
     </div>
   </div>
 </section>
 
 <div class="wrap split" style="padding-bottom:72px;gap:44px" data-katalog>
-  <aside class="side-sm">
+  <aside class="side-sm sticky"><div class="sticky-side">
     <div style="display:flex;align-items:center;justify-content:space-between;padding-bottom:14px;border-bottom:2px solid var(--brand)">
       <div class="h4">Фильтры</div>
       <button class="cap gold" data-f-reset style="background:none;border:none;cursor:pointer;padding:0">Сбросить</button>
@@ -667,6 +671,7 @@ function buildSpaces() {
       <div class="h4" style="color:#fff">Не нашли подходящее?</div>
       <p class="small" style="color:rgba(255,255,255,.68);margin-top:10px">Помещения освобождаются каждый месяц. Опишите задачу: подберём вручную, в том числе из того, что ещё не выложено.</p>
       <a class="btn btn-g btn-block" style="margin-top:16px" href="#podbor">Оставить заявку</a>
+    </div>
     </div>
   </aside>
 
@@ -883,35 +888,28 @@ function buildSpace() {
 
 function buildSale() {
   const rows = SALE.slice().sort((a, b) => parseFloat(a.price.replace(/\s/g, '')) - parseFloat(b.price.replace(/\s/g, ''))).map(o => `
-  <a class="card" href="sale-${o.slug}.html" style="display:block;margin-bottom:24px">
-    <div class="split" style="gap:0;align-items:stretch">
-      <div style="width:38%;flex-shrink:0">${ph(o.addr, 'height:100%;min-height:260px;border:none;border-right:1px solid var(--line)')}</div>
-      <div class="grow" style="padding:30px">
-        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
-          <div><div class="cap">${o.addr}</div><div class="h2" style="margin-top:8px">${o.area} м²</div></div>
-          <span class="badge badge-sale" style="flex-shrink:0">В продаже</span>
-        </div>
-        <p style="margin-top:14px;max-width:62ch">${o.lead}</p>
-        <div class="g4">
-          <div><div class="mono" style="font-size:20px;font-weight:600;color:var(--brand)">${o.price} ₽</div><div class="cap" style="font-size:10px;margin-top:3px">цена</div></div>
-          <div><div class="mono" style="font-size:20px;font-weight:600;color:var(--brand)">${o.map}</div><div class="cap" style="font-size:10px;margin-top:3px">арендный поток</div></div>
-          <div><div class="mono" style="font-size:20px;font-weight:600;color:var(--brand)">${o.payback}</div><div class="cap" style="font-size:10px;margin-top:3px">окупаемость</div></div>
-          <div style="align-self:end;text-align:right"><span class="cap gold">Подробнее →</span></div>
-        </div>
+  <a class="card salerow" href="sale-${o.slug}.html">
+    <div class="saleimg">${ph(o.addr, 'height:100%;border:none')}</div>
+    <div class="salebody">
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:20px">
+        <div><div class="cap">${o.addr}</div><div class="h2" style="margin-top:8px">${o.area} м²</div></div>
+        <span class="badge badge-sale" style="flex-shrink:0">В продаже</span>
       </div>
+      <p style="margin-top:14px;max-width:64ch">${o.lead}</p>
+      <div class="figs" style="margin-top:24px;padding-top:24px;border-top:1px solid var(--line2)">
+        <div class="fig"><div class="n">${o.price} ₽</div><div class="l">цена</div></div>
+        <div class="fig"><div class="n">${o.map}</div><div class="l">арендный поток</div></div>
+        <div class="fig"><div class="n">${o.payback}</div><div class="l">окупаемость</div></div>
+      </div>
+      <div class="cardfoot"><span class="small">Сдан в аренду, платят арендаторы</span><span class="cap gold">Подробнее →</span></div>
     </div>
   </a>`).join('');
 
   const body = `
 <section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Продажа объектов</h1>
-  <p class="lead prose" style="margin-top:16px">Готовый арендный бизнес от собственника: торговые помещения в комплексе на Карпинского с федеральными сетевыми арендаторами и офисно-производственно-складское здание на Электропультовцев. Все объекты сданы в аренду, коммунальные услуги оплачивают арендаторы.</p>
-  <div class="stats" style="margin-top:32px">
-    <div><div class="stat-n">5</div><div class="cap" style="margin-top:6px">объектов</div></div>
-    <div><div class="stat-n">264—1432</div><div class="cap" style="margin-top:6px">м²</div></div>
-    <div><div class="stat-n">7—9</div><div class="cap" style="margin-top:6px">лет окупаемость</div></div>
-    <div><div class="stat-n">2%</div><div class="cap" style="margin-top:6px">комиссия агентам</div></div>
-  </div>
+  <p class="lead prose" style="margin-top:16px">Пять объектов от собственника: торговые помещения в комплексе на Карпинского и офисно-производственно-складское здание на Электропультовцев. Все сданы в аренду, коммунальные услуги платят арендаторы, окупаемость от семи лет.</p>
+  <p class="small prose" style="margin-top:12px">Площади от 264 до 1432 м². Продажа от физического лица, НДС 5% включён в стоимость. Агентам комиссия 2%.</p>
 </section>
 <section class="wrap sec">${rows}</section>
 ${ctaBlock('Посмотреть объект и документы', 'Организуем просмотр, покажем договоры аренды и подтверждение арендного потока.')}`;

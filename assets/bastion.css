@@ -139,13 +139,13 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
   background:repeating-linear-gradient(45deg,transparent 0 24px,rgba(93,72,70,.028) 24px 48px);
 }
 .imgph i{
-  width:64px;height:41px;background:var(--brand);opacity:.13;position:relative;flex-shrink:0;
-  -webkit-mask:url(logo.svg) no-repeat center/contain;mask:url(logo.svg) no-repeat center/contain;
+  width:52px;height:28px;background:var(--brand);opacity:.13;position:relative;flex-shrink:0;
+  -webkit-mask:url(crest.svg) no-repeat center/contain;mask:url(crest.svg) no-repeat center/contain;
 }
 .imgph span{position:relative;font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.13em;text-transform:uppercase;color:var(--ink3)}
-.imgph.sm i{width:40px;height:26px}
+.imgph.sm i{width:36px;height:20px}
 .imgph.sm span{font-size:10px}
-.imgph.xs i{width:28px;height:18px}
+.imgph.xs i{width:26px;height:14px}
 .imgph.xs span{display:none}
 
 /* ---------- шапка ---------- */
@@ -154,10 +154,16 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .topbar a:hover{color:var(--gold)}
 .topbar-in{display:flex;justify-content:space-between;gap:20px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
 .hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
-.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:92px}
-.logo{display:flex;align-items:center;flex-shrink:0}
-.logo img{height:56px;width:auto;flex-shrink:0}
-.nav{display:flex;gap:20px;flex-shrink:1;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:20px;height:88px}
+.logo{display:flex;align-items:center;gap:11px;flex-shrink:0}
+.logo-crest{height:38px;width:auto;flex-shrink:0;display:block}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt b{font-family:var(--disp);font-size:20px;font-weight:700;letter-spacing:.14em;color:var(--brand-dk)}
+.logo-txt i{font-style:normal;font-family:var(--sans);font-size:7.5px;font-weight:600;letter-spacing:.235em;color:var(--ink3);margin-top:6px;white-space:nowrap}
+.ftr .logo-txt b{color:var(--gold)}
+.ftr .logo-txt i{color:rgba(255,255,255,.5)}
+.ftr .logo-crest{height:52px}
+.nav{display:flex;gap:17px;flex-shrink:1;font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap}
 .nav a{color:var(--ink2)}
 .nav a:hover{color:var(--brand)}
 .nav a.on{color:var(--brand);border-bottom:2px solid var(--gold);padding-bottom:2px}
@@ -183,6 +189,12 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .statbox{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r3);overflow:hidden}
 .statbox>div{background:var(--bg);padding:20px}
 .figs{display:grid;grid-template-columns:repeat(auto-fit,minmax(92px,1fr));gap:20px var(--gut)}
+.cardfoot{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:auto;padding-top:22px}
+.salerow{display:grid;grid-template-columns:38% 1fr;margin-bottom:var(--gut)}
+.saleimg{border-right:1px solid var(--line);min-height:280px}
+.salebody{padding:30px;display:flex;flex-direction:column}
+@media (max-width:900px){.salerow{grid-template-columns:1fr}.saleimg{border-right:none;border-bottom:1px solid var(--line);min-height:200px}.salebody{padding:24px}}
+.card>.split{align-items:stretch}
 .fig .n{font-family:var(--mono);font-size:20px;font-weight:600;color:var(--brand);line-height:1}
 .fig .l{font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--ink3);margin-top:7px;min-height:28px;line-height:1.35}
 
@@ -198,6 +210,7 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .tbl tbody tr.hold{opacity:.55}
 .tbl .r{text-align:right}
 .tbl .num{font-family:var(--mono);font-variant-numeric:tabular-nums;font-weight:600}
+.tbl td.code{white-space:nowrap;font-size:12px}
 
 /* ---------- табы ---------- */
 .tabs{display:flex;gap:34px;border-bottom:1px solid var(--line);overflow-x:auto}
@@ -259,6 +272,10 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .split>.grow{grid-column:span 8;min-width:0}
 .split>.side{grid-column:span 4;width:auto}
 .split>.side-sm{grid-column:span 3;width:auto}
+.split>.side-sm.sticky{position:sticky;top:108px;align-self:start}
+.sticky-side{max-height:calc(100vh - 132px);overflow-y:auto;overscroll-behavior:contain;padding-right:6px}
+.sticky-side::-webkit-scrollbar{width:6px}
+.sticky-side::-webkit-scrollbar-thumb{background:var(--line);border-radius:3px}
 .split>.side-xs{grid-column:span 2;width:auto}
 .split.rev>.grow{grid-column:4 / span 9}
 .row{display:flex;gap:16px;flex-wrap:wrap}
@@ -276,7 +293,7 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .ftr a{color:rgba(255,255,255,.72)}
 .ftr a:hover{color:var(--gold)}
 .ftr .cap{color:var(--gold)}
-.ftr img{height:56px;width:auto}
+
 .ftr-cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gut)}
 .ftr-list{line-height:2}
 .ftr-brand{grid-column:span 4}
@@ -301,6 +318,9 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .tree ul li::before{content:'';position:absolute;left:-26px;top:16px;width:18px;height:1px;background:var(--line)}
 
 /* ---------- адаптив ---------- */
+@media (max-width:1330px){
+  .hdr-in > a.mono.hdr-cta{display:none}
+}
 @media (max-width:1240px){
   :root{--pad:32px}
   .d1{font-size:42px}
@@ -313,6 +333,8 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
   .nav{display:none}
   .burger{display:flex}
   .split>.grow,.split>.side,.split>.side-sm,.split>.side-xs,.split.rev>.grow{grid-column:span 12}
+  .split>.side-sm.sticky{position:static}
+  .sticky-side{max-height:none;overflow:visible}
   .g3>*,.g4>*{grid-column:span 6}
   .g6>*{grid-column:span 3}
   .ftr-brand{grid-column:span 12}

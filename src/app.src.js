@@ -222,7 +222,7 @@
 
     function row(r) {
       return '<tr class="' + (r.hold ? 'hold' : '') + '" onclick="location.href=\'space.html\'">' +
-        '<td data-l="Код" class="mono" style="color:var(--ink3);font-size:13px">' + r.id + '</td>' +
+        '<td data-l="Код" class="mono code" style="color:var(--ink3)">' + r.id + '</td>' +
         '<td data-l="Помещение"><div style="font-weight:700">' + r.t + '</div>' +
           '<div class="small" style="font-size:13px">' + SITE_NAMES[r.s] + '</div></td>' +
         '<td data-l="Площадь" class="r num" style="font-size:16px">' + fmt(r.a) + '</td>' +
