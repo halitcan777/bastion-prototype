@@ -66,6 +66,9 @@ li{margin-bottom:6px}
 .prose{max-width:68ch}
 .gold{color:var(--gold-dk)}
 .rule-gold{height:3px;width:56px;background:var(--gold);border:none;margin:0 0 24px}
+.cta-phone{font-family:var(--disp);font-size:32px;font-weight:700}
+.cta-side{flex-shrink:0}
+.sub-form{flex-shrink:0;min-width:400px}
 
 /* ---------- кнопки ---------- */
 .btn{
@@ -286,6 +289,8 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .sticky-side{min-width:0}
 .split>.side-xs{grid-column:span 2;width:auto}
 .split.rev>.grow{grid-column:4 / span 9}
+.split.hero>.grow{grid-column:span 7}
+.split.hero>.side{grid-column:span 5}
 .row{display:flex;gap:16px;flex-wrap:wrap}
 .col{display:flex;flex-direction:column;gap:16px}
 .side,.side-sm{width:100%}
@@ -340,7 +345,7 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 @media (max-width:1040px){
   .nav{display:none}
   .burger{display:flex}
-  .split>.grow,.split>.side,.split>.side-sm,.split>.side-xs,.split.rev>.grow{grid-column:span 12}
+  .split>.grow,.split>.side,.split>.side-sm,.split>.side-xs,.split.rev>.grow,.split.hero>.grow,.split.hero>.side{grid-column:span 12}
   .split>.side-sm.sticky{position:static}
 
   .g3>*,.g4>*{grid-column:span 6}
@@ -357,28 +362,86 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
   .h1{font-size:26px}
   .h2{font-size:22px}
   .h3{font-size:19px}
+  body{font-size:15px}
+  .lead{font-size:16px;line-height:1.55}
   .sec{padding-top:48px;padding-bottom:48px}
   .sec-tight{padding-top:40px;padding-bottom:40px}
-  .hdr-in{height:78px}
+  .sechead{margin-bottom:26px}
+  .sechead>*{min-width:0;max-width:100%}
+  .imgph{max-width:100%}
+
+  /* на узком экране 12 колонок с жёлобом 24 не помещаются — одна колонка */
+  .g2,.g3,.g4,.g6,.split{grid-template-columns:1fr;gap:20px}
+  .g2>*,.g3>*,.g4>*,.g6>*,.split>*,
+  .split>.grow,.split>.side,.split>.side-sm,.split>.side-xs,.split.hero>.grow,.split.hero>.side{grid-column:auto}
+  .figs{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+  .ftr-cols{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+  .ftr-brand,.ftr-col{grid-column:auto}
+  .stats{gap:20px 28px}
+  .stat-n{font-size:30px}
+  .split{gap:32px}
+
+  /* шапка */
+  .hdr-in{height:78px;gap:12px}
   .logo-crest{height:26px}
   .logo-txt b{font-size:16px}
   .logo-txt i{font-size:5.5px}
-  .logo-crest{height:26px}
-  .g2>*,.g3>*,.g4>*,.g6>*{grid-column:span 12}
-  .ftr-col{grid-column:span 6}
-  .stats{gap:20px 32px}
-  .stat-n{font-size:30px}
-  .map{height:360px}
+  .topbar-in{font-size:12px;gap:6px}
+
+  /* карта: подписи нужны, иначе точки бессмысленны */
+  .map{height:300px}
   .map-card{left:12px;right:12px;bottom:12px;width:auto;padding:16px}
-  .pin-lab{display:none}
-  .row{flex-wrap:wrap}
+  .pin{width:16px;height:16px}
+  .pin.on{width:20px;height:20px;box-shadow:0 0 0 5px rgba(215,181,109,.28)}
+  .pin-lab{display:block;left:22px;top:-9px;font-size:11px}
+  .pin.flip .pin-lab{left:auto;right:22px}
+  .pin-lab .mono{display:none}
+
+  /* тач-цели не меньше 44 */
   .btn{width:100%}
-  .btn.auto{width:auto}
+  .btn.auto{width:auto;max-width:100%}
+  .btn-sm{height:42px}
+  .row{width:100%;min-width:0}
+  .row>*,.split>*,.g2>*,.g3>*,.g4>*,.g6>*,.grow,.side,.side-sm{min-width:0;max-width:100%}
+  .spec{grid-template-columns:1fr auto;gap:12px}
+  .spec>*{min-width:0;overflow-wrap:anywhere}
+  a.cap{display:inline-flex;align-items:center;min-height:44px}
+  .ftr a,.ftr-btm a{min-height:42px;display:inline-flex;align-items:center}
+  .doc,.opt{min-height:44px;display:flex;align-items:center}
+  .ftr-list{line-height:1.4}
+  .nav a,.tab{min-height:44px}
+  a.mono:not(.hdr-cta){display:inline-flex;align-items:center;min-height:40px}
+  .chip{height:44px;max-width:100%}
+  .chip-sm{height:40px;max-width:100%}
+
+  /* таблицы превращаются в карточки */
+  .tbl,.tbl tbody{display:block;width:100%}
   .tbl thead{display:none}
-  .tbl tbody tr{display:block;border:1px solid var(--line);border-radius:var(--r3);margin-bottom:12px;padding:8px 4px}
-  .tbl td{display:flex;justify-content:space-between;gap:16px;border:none;padding:8px 12px}
-  .tbl td::before{content:attr(data-l);font-family:var(--disp);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3)}
+  .tbl tbody tr{display:block;border:1px solid var(--line);border-radius:var(--r3);margin-bottom:12px;padding:6px 4px}
+  .tbl td{display:flex;justify-content:space-between;align-items:center;gap:16px;border:none;padding:9px 12px;min-height:0}
+  .tbl td::before{content:attr(data-l);font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.11em;text-transform:uppercase;color:var(--ink3);flex-shrink:0}
   .tbl td.r{text-align:right}
-  .ftr-cols{gap:32px}
-  .sticky-cta{display:flex;gap:8px;position:sticky;bottom:0;z-index:40;padding:12px var(--pad);background:var(--bg);border-top:1px solid var(--line)}
+  .tbl td:last-child{display:none}
+  .tbl td:first-child{padding-left:12px}
+  .tbl td:nth-child(2){flex-direction:column;align-items:flex-start;gap:4px}
+  .tbl td:nth-child(2)>*{max-width:100%}
+
+  /* фильтры каталога разворачиваются в обычный блок */
+  .split>.side-sm.sticky{position:static}
+  .sticky-side{min-width:0}
+
+  /* карточка объекта продажи */
+  .salerow{grid-template-columns:1fr}
+  .saleimg{border-right:none;border-bottom:1px solid var(--line);min-height:180px}
+  .salebody{padding:20px}
+  .cardfoot{flex-direction:column;align-items:flex-start;gap:10px}
+
+  .cta-phone{font-size:24px}
+  .cta-side{flex-shrink:1;width:100%}
+  .sub-form{min-width:0;width:100%}
+  .thumb{width:88px;height:60px}
+  .crumbs{padding-top:18px}
+  .imgph span{font-size:9px}
+
+  .sticky-cta{display:flex;gap:8px;position:sticky;bottom:0;z-index:40;padding:10px var(--pad);background:var(--bg);border-top:1px solid var(--line);box-shadow:0 -6px 20px rgba(93,72,70,.08)}
 }

@@ -41,9 +41,9 @@
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
     <div><hr class="rule-gold"><h1 class="h1">Свободные площади</h1>
       <p class="lead prose" style="margin-top:14px">Офисы, склады, производство, торговля и земельные участки на четырёх площадках. От 5 до 1800 м².</p></div>
-    <div style="flex-shrink:0;display:flex;align-items:baseline;gap:12px;padding-bottom:6px">
-      <span class="stat-n" data-k-total>30</span>
-      <span class="cap">помещений свободно<br>обновлено 13.08.2026</span>
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:16px">
+      <span class="stat-n" data-k-total style="line-height:1">30</span>
+      <span class="cap" style="line-height:1.7">помещений свободно<br>обновлено 13.08.2026</span>
     </div>
   </div>
 </section>
@@ -71,10 +71,10 @@
     <div style="display:flex;align-items:center;justify-content:space-between;gap:16px 24px;padding-bottom:16px;border-bottom:2px solid var(--brand);flex-wrap:wrap;min-width:0">
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap" data-k-chips></div>
       <div style="display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap;min-width:0">
-        <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0">
           <button class="chip chip-sm" data-f-ready>Заехать сразу <span class="n" data-count-ready></span></button>
           <button class="chip chip-sm" data-f-hold>Без брони <span class="n">2</span></button></div>
-        <div style="display:flex;align-items:center;gap:8px"><span class="cap">Сортировка</span>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0"><span class="cap">Сортировка</span>
           <button class="chip chip-sm on" data-f-sort="area-asc">площадь ↑</button>
           <button class="chip chip-sm" data-f-sort="area-desc">площадь ↓</button>
           <button class="chip chip-sm" data-f-sort="floor">этаж</button></div>
@@ -110,10 +110,10 @@
     <div id="podbor" style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:30px 34px;background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);flex-wrap:wrap">
       <div><div class="h4">Узнавать о новых помещениях первым</div>
         <p class="small" style="margin-top:8px">Подписка на рассылку предложений сети. Пишем, только когда освобождается подходящее.</p></div>
-      <form class="row" style="flex-shrink:0;min-width:400px" data-form="sub">
+      <form class="row sub-form" data-form="sub">
         <input class="fld" type="email" required placeholder="Ваш e-mail" style="background:#fff">
         <button class="btn btn-p auto" type="submit">Подписаться</button></form>
-      <div class="hide" data-form-done="sub" style="flex-shrink:0;min-width:400px">
+      <div class="hide sub-form" data-form-done="sub">
         <div class="h4">Готово</div><p class="small" style="margin-top:6px">Напишем, когда появится подходящее.
         <button class="small" data-form-reset style="background:none;border:none;text-decoration:underline;cursor:pointer;font-family:inherit;padding:0;color:var(--gold-dk)">Изменить адрес</button></p></div>
     </div>

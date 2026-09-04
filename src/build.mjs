@@ -165,9 +165,9 @@ const ctaBlock = (h, p) => `
 <section class="sec-tight sec-cream">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap">
     <div style="max-width:56ch"><hr class="rule-gold"><h2 class="h2">${h}</h2><p class="lead" style="margin-top:14px">${p}</p></div>
-    <div style="flex-shrink:0">
+    <div class="cta-side">
       <div class="cap">Отдел аренды</div>
-      <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:32px;color:var(--brand);display:block;margin:8px 0 18px">${SITE.rent}</a>
+      <a class="mono" href="tel:${SITE.rentHref}" class="cta-phone" style="color:var(--brand);display:block;margin:8px 0 18px">${SITE.rent}</a>
       <div class="row"><a class="btn btn-p auto" href="index.html#zayavka">Оставить заявку</a>
       <a class="btn btn-s auto" href="contacts.html">Все контакты</a></div>
     </div>
@@ -243,8 +243,8 @@ function buildIndex() {
 
   const body = `
 <section class="wrap sec" style="padding-bottom:56px">
-  <div class="split">
-    <div class="grow" style="grid-column:span 7">
+  <div class="split hero">
+    <div class="grow">
       <div class="cap">Сеть бизнес-центров · Санкт-Петербург</div>
       <h1 class="d1" style="margin-top:14px">Производство, склад<br>и офис на одной территории</h1>
       <p class="lead" style="margin-top:20px;max-width:54ch">Сдаём офисы, склады, производственные и торговые помещения на четырёх площадках в Выборгском и Калининском районах. Корпуса сообщаются цельными этажами: цех, склад и отдел продаж стоят рядом.</p>
@@ -259,7 +259,7 @@ function buildIndex() {
         <a class="btn btn-s btn-lg" href="#zayavka">Записаться на просмотр</a>
       </div>
     </div>
-    <div class="side" style="grid-column:span 5">
+    <div class="side">
       <div class="map" data-map style="height:330px">
         <div class="map-kad"></div>
         <div class="map-road" style="left:-10%;top:33%;width:120%;height:1px;transform:rotate(-4deg)"></div>
@@ -639,9 +639,9 @@ function buildSpaces() {
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
     <div><hr class="rule-gold"><h1 class="h1">Свободные площади</h1>
       <p class="lead prose" style="margin-top:14px">Офисы, склады, производство, торговля и земельные участки на четырёх площадках. От 5 до 1800 м².</p></div>
-    <div style="flex-shrink:0;display:flex;align-items:baseline;gap:12px;padding-bottom:6px">
-      <span class="stat-n" data-k-total>${SPACES.length}</span>
-      <span class="cap">помещений свободно<br>обновлено ${SITE.updated}</span>
+    <div style="flex-shrink:0;display:flex;align-items:center;gap:16px">
+      <span class="stat-n" data-k-total style="line-height:1">${SPACES.length}</span>
+      <span class="cap" style="line-height:1.7">помещений свободно<br>обновлено ${SITE.updated}</span>
     </div>
   </div>
 </section>
@@ -669,10 +669,10 @@ function buildSpaces() {
     <div style="display:flex;align-items:center;justify-content:space-between;gap:16px 24px;padding-bottom:16px;border-bottom:2px solid var(--brand);flex-wrap:wrap;min-width:0">
       <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap" data-k-chips></div>
       <div style="display:flex;align-items:center;gap:12px 18px;flex-wrap:wrap;min-width:0">
-        <div style="display:flex;align-items:center;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0">
           <button class="chip chip-sm" data-f-ready>Заехать сразу <span class="n" data-count-ready></span></button>
           <button class="chip chip-sm" data-f-hold>Без брони <span class="n">2</span></button></div>
-        <div style="display:flex;align-items:center;gap:8px"><span class="cap">Сортировка</span>
+        <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;min-width:0"><span class="cap">Сортировка</span>
           <button class="chip chip-sm on" data-f-sort="area-asc">площадь ↑</button>
           <button class="chip chip-sm" data-f-sort="area-desc">площадь ↓</button>
           <button class="chip chip-sm" data-f-sort="floor">этаж</button></div>
@@ -708,10 +708,10 @@ function buildSpaces() {
     <div id="podbor" style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:24px;padding:30px 34px;background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);flex-wrap:wrap">
       <div><div class="h4">Узнавать о новых помещениях первым</div>
         <p class="small" style="margin-top:8px">Подписка на рассылку предложений сети. Пишем, только когда освобождается подходящее.</p></div>
-      <form class="row" style="flex-shrink:0;min-width:400px" data-form="sub">
+      <form class="row sub-form" data-form="sub">
         <input class="fld" type="email" required placeholder="Ваш e-mail" style="background:#fff">
         <button class="btn btn-p auto" type="submit">Подписаться</button></form>
-      <div class="hide" data-form-done="sub" style="flex-shrink:0;min-width:400px">
+      <div class="hide sub-form" data-form-done="sub">
         <div class="h4">Готово</div><p class="small" style="margin-top:6px">Напишем, когда появится подходящее.
         <button class="small" data-form-reset style="background:none;border:none;text-decoration:underline;cursor:pointer;font-family:inherit;padding:0;color:var(--gold-dk)">Изменить адрес</button></p></div>
     </div>
