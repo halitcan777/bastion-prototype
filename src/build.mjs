@@ -49,7 +49,7 @@ function header(active) {
   const mob = NAV.map(([h, t]) => `<a href="${h}" style="padding:13px 0;border-bottom:1px solid var(--line2)">${t}</a>`).join('');
   return `
 <div class="topbar"><div class="wrap topbar-in">
-  <span>${SITE.descr}</span>
+  <span>Санкт-Петербург, Выборгский и Калининский районы · ${SITE.hours}</span>
   <span>Отдел аренды <a class="mono" href="tel:${SITE.rentHref}">${SITE.rent}</a></span>
 </div></div>
 <header class="hdr"><div class="wrap hdr-in">
@@ -74,19 +74,19 @@ function footer() {
   return `
 <footer class="ftr"><div class="wrap">
   <div class="ftr-cols">
-    <div style="max-width:300px">
+    <div class="ftr-brand">
       <img src="assets/logo-gold.svg" alt="БАСТИОН" width="164" height="105">
       <p style="margin-top:18px">Сеть офисно-производственных комплексов класса C+ в Санкт-Петербурге.</p>
       <p><a href="${SITE.presentation}" target="_blank" rel="noopener">Скачать презентацию сети (PDF)</a></p>
     </div>
-    <div><div class="cap" style="margin-bottom:14px">Площадки</div><div class="ftr-list">${objs}</div></div>
-    <div><div class="cap" style="margin-bottom:14px">Аренда</div><div class="ftr-list">
+    <div class="ftr-col"><div class="cap" style="margin-bottom:14px">Площадки</div><div class="ftr-list">${objs}</div></div>
+    <div class="ftr-col"><div class="cap" style="margin-bottom:14px">Аренда</div><div class="ftr-list">
       <a href="spaces.html">Свободные площади</a><br><a href="about.html#usloviya">Условия аренды</a><br>
       <a href="tenants.html">Документы</a><br><a href="sale.html">Продажа объектов</a></div></div>
-    <div><div class="cap" style="margin-bottom:14px">Арендаторам</div><div class="ftr-list">
+    <div class="ftr-col"><div class="cap" style="margin-bottom:14px">Арендаторам</div><div class="ftr-list">
       <a href="tenants.html">Бланки и документы</a><br><a href="tenants.html#propuska">Пропуска</a><br>
       <a href="tenants.html#zayavka-inzheneru">Заявка инженеру</a><br><a href="tenants.html#grafik">График работы</a></div></div>
-    <div><div class="cap" style="margin-bottom:14px">Контакты</div><div class="ftr-list mono">
+    <div class="ftr-col"><div class="cap" style="margin-bottom:14px">Контакты</div><div class="ftr-list mono">
       <a href="tel:${SITE.phoneHref}">${SITE.phone}</a><br><a href="tel:${SITE.rentHref}">${SITE.rent}</a><br>
       <a href="mailto:${SITE.email}">${SITE.email}</a></div>
       <div class="ftr-list" style="margin-top:10px">${SITE.addr}</div></div>
@@ -162,13 +162,14 @@ const leadForm = (key, title, note) => `
 </div>`;
 
 const ctaBlock = (h, p) => `
-<section class="sec-tight sec-dark">
+<section class="sec-tight sec-cream">
   <div class="wrap" style="display:flex;align-items:center;justify-content:space-between;gap:48px;flex-wrap:wrap">
-    <div><h2 class="h2">${h}</h2><p class="lead" style="margin-top:12px;max-width:52ch">${p}</p></div>
+    <div style="max-width:56ch"><hr class="rule-gold"><h2 class="h2">${h}</h2><p class="lead" style="margin-top:14px">${p}</p></div>
     <div style="flex-shrink:0">
-      <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:30px;color:#fff;display:block;margin-bottom:16px">${SITE.rent}</a>
-      <div class="row"><a class="btn btn-g auto" href="index.html#zayavka">Оставить заявку</a>
-      <a class="btn btn-ondark auto" href="contacts.html">Контакты</a></div>
+      <div class="cap">Отдел аренды</div>
+      <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:32px;color:var(--brand);display:block;margin:8px 0 18px">${SITE.rent}</a>
+      <div class="row"><a class="btn btn-p auto" href="index.html#zayavka">Оставить заявку</a>
+      <a class="btn btn-s auto" href="contacts.html">Все контакты</a></div>
     </div>
   </div>
 </section>`;
@@ -190,7 +191,7 @@ function buildIndex() {
           <span class="badge badge-free" style="flex-shrink:0">${SPACES.filter(s => s.s === o.id).length} свободно</span>
         </div>
         <p class="small" style="margin-top:14px">${o.lead}</p>
-        <div class="g4" style="gap:14px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line2)">
+        <div class="g4">
           ${o.figures.slice(0, 4).map(([n, l]) => `<div><div class="mono" style="font-size:19px;font-weight:600;color:var(--brand)">${n}</div><div class="cap" style="font-size:10px;margin-top:3px">${l}</div></div>`).join('')}
         </div>
         <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:22px">
@@ -241,12 +242,12 @@ function buildIndex() {
     </div>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:72px;padding-bottom:56px">
+<section class="wrap sec">
   <div class="split">
-    <div style="width:520px;flex-shrink:0">
+    <div class="side">
       <hr class="rule-gold">
       <h1 class="d1">Производство, склад<br>и офис на одной<br>территории</h1>
-      <p class="lead" style="margin-top:22px">Четыре площадки в Выборгском и Калининском районах Петербурга. Корпуса сообщаются цельными этажами — цех, склад и отдел продаж можно держать рядом, а не в трёх точках города.</p>
+      <p class="lead" style="margin-top:22px">Четыре площадки на севере Петербурга. Корпуса сообщаются цельными этажами: цех, склад и отдел продаж стоят рядом. Разносить бизнес по трём адресам не придётся.</p>
       <div class="stats" style="margin-top:40px">
         <div><div class="stat-n">55 800</div><div class="cap" style="margin-top:8px">м² в сети</div></div>
         <div><div class="stat-n">4</div><div class="cap" style="margin-top:8px">площадки</div></div>
@@ -275,8 +276,8 @@ function buildIndex() {
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:72px">
-  <div style="border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r3);padding:30px 34px;background:var(--bg2)">
+<section class="wrap sec">
+  <div style="border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);padding:30px 34px;background:var(--bg2)">
     <div class="sechead" style="margin-bottom:20px">
       <h2 class="h3">Подобрать помещение</h2>
       <span class="cap">Каталог обновлён ${SITE.updated}</span>
@@ -291,26 +292,26 @@ function buildIndex() {
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:88px">
-  <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Наши возможности</h2></div></div>
+<section class="wrap sec">
+  <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Что сдаём</h2></div></div>
   <div class="g4">${services}</div>
 </section>
 
-<section class="wrap" style="padding-bottom:88px">
-  <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Наши объекты</h2></div>
+<section class="wrap sec">
+  <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Четыре площадки</h2></div>
     <a class="cap gold" href="objects.html">Все площадки →</a></div>
   <div class="g2">${cards}</div>
 </section>
 
 <section class="sec sec-cream">
   <div class="wrap split">
-    <div style="width:420px;flex-shrink:0">
+    <div class="side">
       <hr class="rule-gold">
       <h2 class="h2">Полный цикл<br>на одной территории</h2>
-      <p class="lead" style="margin-top:20px">Главное отличие от обычного бизнес-центра. Все корпуса сообщаются между собой цельными этажами: можно объединить подразделения и организовать полный цикл — производство, складирование, менеджмент и продажи, отгрузку и реализацию продукции.</p>
+      <p class="lead" style="margin-top:20px">Так устроены все четыре комплекса. Корпуса сообщаются цельными этажами, поэтому производство, склад, продажи и отгрузка живут в одном контуре. Обычный бизнес-центр так не умеет.</p>
       <a class="btn btn-s auto" style="margin-top:28px" href="about.html">О сети подробнее</a>
     </div>
-    <div class="grow g4" style="gap:16px">
+    <div class="grow g4">
       ${[['Производство', '40—500 м²', 'отдельные корпуса, свободные мощности'],
          ['Склад', '40—500 м²', 'грузовой лифт, разгрузка во дворе'],
          ['Офис', '10—200 м²', 'этажом выше, кабинет или свободная планировка'],
@@ -339,9 +340,9 @@ function buildIndex() {
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:88px">
-  <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Наши преимущества</h2></div></div>
-  <div class="g3" style="gap:36px 32px">${advs}</div>
+<section class="wrap sec">
+  <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Что есть на площадках</h2></div></div>
+  <div class="g3">${advs}</div>
 </section>
 
 <section class="sec sec-cream" id="usloviya">
@@ -355,18 +356,18 @@ function buildIndex() {
 <section class="sec">
   <div class="wrap">
     <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Продажа объектов</h2>
-      <p class="lead" style="margin-top:14px;max-width:60ch">Готовый арендный бизнес от собственника: торговые помещения с федеральными сетевыми арендаторами и офисно-производственное здание.</p></div>
+      <p class="lead" style="margin-top:14px;max-width:60ch">Пять объектов от собственника. Все сданы в аренду, платят федеральные сети: FixPrice, «Много Лосося», «Важная Рыба».</p></div>
       <a class="cap gold" href="sale.html">Все объекты →</a></div>
-    <div class="g5" style="display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px">${sale}</div>
+    <div class="g3">${sale}</div>
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:88px">
+<section class="wrap sec">
   <div class="split">
-    <div style="width:360px;flex-shrink:0">
+    <div class="side">
       <hr class="rule-gold">
-      <h2 class="h2">Часто спрашивают</h2>
-      <p class="lead" style="margin-top:16px">Если нужного вопроса нет — задайте его отделу аренды, ответим в тот же день.</p>
+      <h2 class="h2">Вопросы</h2>
+      <p class="lead" style="margin-top:16px">Не нашли свой вопрос? Позвоните в отдел аренды. Отвечаем в тот же день.</p>
       <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:26px;color:var(--brand);display:inline-block;margin-top:20px">${SITE.rent}</a>
     </div>
     <div class="grow" data-acc>${faq}</div>
@@ -381,21 +382,21 @@ function buildIndex() {
   </div>
 </section>
 
-<section class="sec sec-dark" id="zayavka">
-  <div class="wrap split" style="gap:72px">
+<section class="sec" id="zayavka" style="border-top:1px solid var(--line)">
+  <div class="wrap split">
     <div class="grow">
       <hr class="rule-gold">
       <h2 class="h2">Приезжайте посмотреть</h2>
-      <p class="lead" style="margin-top:18px;max-width:48ch">Скажите площадь и назначение — покажем подходящие помещения на любой площадке сети.</p>
+      <p class="lead" style="margin-top:18px;max-width:48ch">Назовите площадь и назначение. Покажем всё подходящее за один визит, на любой площадке сети.</p>
       <div class="stats" style="margin-top:40px">
-        <div><div class="cap">Отдел аренды</div><a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:26px;color:#fff;display:block;margin-top:8px">${SITE.rent}</a></div>
-        <div><div class="cap">Общий телефон</div><a class="mono" href="tel:${SITE.phoneHref}" style="font-family:var(--disp);font-size:26px;color:#fff;display:block;margin-top:8px">${SITE.phone}</a></div>
+        <div><div class="cap">Отдел аренды</div><a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:26px;color:var(--brand);display:block;margin-top:8px">${SITE.rent}</a></div>
+        <div><div class="cap">Общий телефон</div><a class="mono" href="tel:${SITE.phoneHref}" style="font-family:var(--disp);font-size:26px;color:var(--brand);display:block;margin-top:8px">${SITE.phone}</a></div>
       </div>
       <div style="margin-top:26px"><div class="cap">Почта</div>
-        <a class="mono" href="mailto:${SITE.email}" style="font-size:17px;color:#fff;display:block;margin-top:8px">${SITE.email}</a></div>
+        <a class="mono" href="mailto:${SITE.email}" style="font-size:17px;color:var(--brand);display:block;margin-top:8px">${SITE.email}</a></div>
       <p class="small" style="margin-top:26px">${SITE.addr}<br>${SITE.hours}</p>
     </div>
-    <div class="side" style="background:#fff;color:var(--ink);border-radius:var(--r3);padding:36px">
+    <div class="side" style="background:#fff;border:1px solid var(--line);border-radius:var(--r3);padding:32px">
       ${leadForm('home', 'Подобрать помещение', 'Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.')}
     </div>
   </div>
@@ -422,7 +423,7 @@ function buildObjects() {
           <span class="badge badge-free" style="flex-shrink:0">${SPACES.filter(s => s.s === o.id).length} свободно</span>
         </div>
         <p style="margin-top:16px;max-width:60ch">${o.lead}</p>
-        <div class="g4" style="gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line2)">
+        <div class="g4">
           ${o.figures.slice(0, 4).map(([n, l]) => `<div><div class="mono" style="font-size:21px;font-weight:600;color:var(--brand)">${n}</div><div class="cap" style="font-size:10px;margin-top:3px">${l}</div></div>`).join('')}
         </div>
         <div class="row" style="margin-top:26px">
@@ -434,18 +435,18 @@ function buildObjects() {
   </div>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:20px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Площадки сети</h1>
-  <p class="lead prose" style="margin-top:16px">Четыре комплекса общей площадью 55 800 м² в Выборгском и Калининском районах Санкт-Петербурга. На каждой площадке — офисные, складские и производственные помещения, на Карпинского — торговые.</p>
+  <p class="lead prose" style="margin-top:16px">Четыре комплекса общей площадью 55 800 м² в Выборгском и Калининском районах. Везде есть офисы, склады и производство. На Карпинского — торговый комплекс с федеральными сетями.</p>
 </section>
-<section class="wrap" style="padding-bottom:72px">${cards}
+<section class="wrap sec">${cards}
   <div class="card pad" style="background:var(--bg2)">
     <div class="h3">Другие объекты</div>
-    <p class="small" style="margin-top:10px;max-width:70ch">Помимо четырёх основных площадок сеть работает с отдельными объектами — в том числе с офисно-производственным зданием на улице Электропультовцев, 7К. Такие объекты попадают в каталог свободных площадей и в раздел продажи.</p>
+    <p class="small" style="margin-top:10px;max-width:70ch">Кроме четырёх основных площадок сеть работает с отдельными объектами. Например, с офисно-производственным зданием на Электропультовцев, 7К. Они попадают в каталог свободных площадей и в раздел продажи.</p>
     <div class="row" style="margin-top:20px"><a class="btn btn-s auto" href="spaces.html">Каталог площадей</a><a class="btn btn-q auto" href="sale.html">Объекты на продажу</a></div>
   </div>
 </section>
-${ctaBlock('Покажем любую площадку', 'Один визит — и вы видите всё свободное на объекте. Отдел аренды согласует удобное время.')}`;
+${ctaBlock('Покажем любую площадку', 'За один визит увидите всё свободное на объекте. Отдел аренды согласует время.')}`;
 
   return page({
     file: 'objects.html', active: 'objects.html', title: 'Площадки сети — БАСТИОН',
@@ -475,7 +476,7 @@ function buildObject(o) {
 
   const plans = o.plans.length ? `
     <div class="split" style="margin-top:28px;gap:32px">
-      <div style="width:170px;flex-shrink:0" data-floors>
+      <div class="side-xs" data-floors>
         <div class="cap" style="margin-bottom:12px">Этаж</div>
         ${o.plans.map((p, i) => `<button class="opt${i === 0 ? ' on' : ''}" data-floor="${i}" data-floor-name="${p}"><span>${p}</span></button>`).join('')}
       </div>
@@ -508,21 +509,21 @@ function buildObject(o) {
     </tr>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:24px;padding-bottom:52px">
-  <div class="split" style="gap:44px">
+<section class="wrap sec">
+  <div class="split">
     <div class="grow" data-gallery>
       ${ph(o.photos[0], 'height:460px;border-radius:var(--r3)')}
       <div class="thumbs" style="margin-top:12px">${thumbs}</div>
       <p class="small" style="margin-top:12px"><span data-gallery-label>${o.photos[0]}</span></p>
     </div>
-    <div class="side" style="width:430px">
+    <div class="side">
       <div class="cap">${o.district}</div>
       <h1 class="h1" style="margin-top:10px">${o.name}</h1>
       <p class="lead" style="margin-top:12px">${o.addr}</p>
       <div class="statbox" style="margin-top:26px">
         ${o.figures.slice(0, 4).map(([n, l]) => `<div><div class="mono" style="font-size:25px;font-weight:600;color:var(--brand)">${n}</div><div class="cap" style="margin-top:5px">${l}</div></div>`).join('')}
       </div>
-      <div style="background:var(--bg2);border-left:3px solid var(--gold);border-radius:var(--r2);padding:22px;margin-top:18px">
+      <div style="background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r2) var(--r2);padding:22px;margin-top:18px">
         <div class="cap">Ставка аренды</div>
         <p style="margin:10px 0 0;font-size:17px">Назовём на звонке — зависит от площади, этажа и назначения. В ставку включено отопление.</p>
       </div>
@@ -550,7 +551,7 @@ function buildObject(o) {
   <button class="tab" data-tab="contacts">Контакты</button>
 </div></div>
 
-<section class="wrap split" data-panel="about" data-scope="p" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec split">
   <div class="grow prose">
     <hr class="rule-gold"><h2 class="h2">${o.lead}</h2>
     ${bodyText}
@@ -559,7 +560,7 @@ function buildObject(o) {
     <h3 class="h3" style="margin-top:36px">Условия аренды</h3>
     <div style="margin-top:12px">${terms}</div>
   </div>
-  <aside class="side" style="width:390px">
+  <aside class="side">
     <div class="card pad"><div class="h4">Как добраться</div><div style="margin-top:8px">${transport}</div>
       ${ph('Карта проезда', 'height:180px;border-radius:var(--r2);margin-top:18px', 'sm')}</div>
     <div class="card pad" style="margin-top:24px"><div class="h4">Дополнительные услуги</div><ul style="margin-top:16px">${services}</ul></div>
@@ -568,7 +569,7 @@ function buildObject(o) {
   </aside>
 </section>
 
-<section class="wrap hide" data-panel="spaces" data-scope="p" style="padding-top:40px;padding-bottom:72px">
+<section class="wrap sec hide" data-panel="spaces" data-scope="p" >
   <div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Свободные площади</h2>
     <p class="small" style="margin-top:8px">Обновлено ${SITE.updated}</p></div>
     <a class="cap gold" href="spaces.html">Весь каталог сети →</a></div>
@@ -577,14 +578,14 @@ function buildObject(o) {
   </tr></thead><tbody>${spacesRows}</tbody></table>
 </section>
 
-<section class="wrap hide" data-panel="plans" data-scope="p" style="padding-top:40px;padding-bottom:72px">
+<section class="wrap sec hide" data-panel="plans" data-scope="p" >
   <hr class="rule-gold"><h2 class="h2">Поэтажные планы</h2>${plans}
 </section>
 
-<section class="wrap hide" data-panel="docs" data-scope="p" style="padding-top:40px;padding-bottom:72px">
+<section class="wrap sec hide" data-panel="docs" data-scope="p" >
   <div class="split">
     <div class="grow prose"><hr class="rule-gold"><h2 class="h2">Документы</h2>${docs}</div>
-    <aside class="side" style="width:370px">
+    <aside class="side">
       <div style="background:var(--bg2);border-radius:var(--r3);padding:28px">
         <div class="h4">Как проходит заезд</div>
         <div class="col" style="margin-top:20px;gap:18px">
@@ -596,7 +597,7 @@ function buildObject(o) {
   </div>
 </section>
 
-<section class="wrap hide" data-panel="contacts" data-scope="p" style="padding-top:40px;padding-bottom:72px">
+<section class="wrap sec hide" data-panel="contacts" data-scope="p" >
   <hr class="rule-gold"><h2 class="h2">Контакты площадки</h2>
   <div class="g3" style="margin-top:28px">${contacts}</div>
   <div class="row" style="margin-top:28px;flex-wrap:wrap">
@@ -605,13 +606,13 @@ function buildObject(o) {
   </div>
 </section>
 
-<section class="sec sec-dark" id="zayavka">
-  <div class="wrap split" style="gap:72px">
+<section class="sec" id="zayavka" style="border-top:1px solid var(--line)">
+  <div class="wrap split">
     <div class="grow"><hr class="rule-gold"><h2 class="h2">Посмотреть помещение<br>на площадке «${o.short}»</h2>
       <p class="lead" style="margin-top:18px;max-width:46ch">Покажем всё свободное за один визит и ответим на вопросы по условиям.</p>
-      <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:30px;color:#fff;display:block;margin-top:28px">${SITE.rent}</a>
+      <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:30px;color:var(--brand);display:block;margin-top:28px">${SITE.rent}</a>
     </div>
-    <div class="side" style="background:#fff;color:var(--ink);border-radius:var(--r3);padding:36px">
+    <div class="side" style="background:#fff;border:1px solid var(--line);border-radius:var(--r3);padding:32px">
       ${leadForm('obj-' + o.id, 'Записаться на просмотр', 'Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.')}
     </div>
   </div>
@@ -633,10 +634,10 @@ function buildSpaces() {
   const useOpts = Object.entries(USE_NAMES).map(([k, v]) => `<button class="opt" data-f-use="${k}"><span class="box">✓</span><span>${v}</span><span class="n" data-count-use="${k}"></span></button>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:30px">
+<section class="wrap sec">
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
     <div><hr class="rule-gold"><h1 class="h1">Свободные площади</h1>
-      <p class="lead prose" style="margin-top:14px">Офисные, складские, производственные и торговые помещения, а также земельные участки на четырёх площадках сети. От 5 до 1800 м².</p></div>
+      <p class="lead prose" style="margin-top:14px">Офисы, склады, производство, торговля и земельные участки на четырёх площадках. От 5 до 1800 м².</p></div>
     <div style="text-align:right;flex-shrink:0">
       <div class="stat-n" data-k-total>${SPACES.length}</div>
       <div class="cap" style="margin-top:6px">найдено · обновлено ${SITE.updated}</div>
@@ -667,7 +668,7 @@ function buildSpaces() {
     </div>
     <div style="background:var(--brand-dk);color:#fff;border-radius:var(--r3);padding:24px;margin-top:22px">
       <div class="h4" style="color:#fff">Не нашли подходящее?</div>
-      <p class="small" style="color:rgba(255,255,255,.68);margin-top:10px">Помещения освобождаются каждый месяц. Опишите задачу — подберём вручную, в том числе из того, что ещё не выложено.</p>
+      <p class="small" style="color:rgba(255,255,255,.68);margin-top:10px">Помещения освобождаются каждый месяц. Опишите задачу: подберём вручную, в том числе из того, что ещё не выложено.</p>
       <a class="btn btn-g btn-block" style="margin-top:16px" href="#podbor">Оставить заявку</a>
     </div>
   </aside>
@@ -703,7 +704,7 @@ function buildSpaces() {
     <div class="hide" data-k-more style="display:flex;justify-content:center;margin-top:28px">
       <button class="btn btn-s auto">Показать ещё <span>18</span></button></div>
 
-    <div id="podbor" style="display:flex;align-items:center;justify-content:space-between;gap:40px;margin-top:44px;padding:30px 34px;background:var(--bg2);border-left:3px solid var(--gold);border-radius:var(--r3);flex-wrap:wrap">
+    <div id="podbor" style="display:flex;align-items:center;justify-content:space-between;gap:24px;margin-top:48px;padding:30px 34px;background:var(--bg2);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);flex-wrap:wrap">
       <div><div class="h4">Узнавать о новых помещениях первым</div>
         <p class="small" style="margin-top:8px">Подписка на рассылку предложений сети. Пишем, только когда освобождается подходящее.</p></div>
       <form class="row" style="flex-shrink:0;min-width:400px" data-form="sub">
@@ -737,7 +738,7 @@ function buildSpace() {
     </a>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:22px;padding-bottom:26px">
+<section class="wrap sec">
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
     <div>
       <div style="display:flex;align-items:center;gap:12px">
@@ -753,13 +754,13 @@ function buildSpace() {
   </div>
 </section>
 
-<section class="wrap split" style="padding-bottom:56px;gap:44px">
+<section class="wrap sec split">
   <div class="grow" data-gallery>
     ${ph(s.photos[0], 'height:520px;border-radius:var(--r3)')}
     <div class="thumbs" style="margin-top:12px">${thumbs}</div>
     <p class="small" style="margin-top:12px"><span data-gallery-label>${s.photos[0]}</span></p>
   </div>
-  <aside class="side" style="width:420px" id="zayavka">
+  <aside class="side" id="zayavka">
     <div style="border:1px solid var(--line);border-radius:var(--r3);overflow:hidden">
       <div style="padding:28px;border-bottom:1px solid var(--line);background:var(--bg2)">
         <div class="cap">Ставка аренды</div>
@@ -801,7 +802,7 @@ function buildSpace() {
   <button class="tab" data-tab="docs">Документы</button>
 </div></div>
 
-<section class="wrap split" data-panel="about" data-scope="r" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec split">
   <div class="grow prose"><hr class="rule-gold"><h2 class="h2">О помещении</h2>
     <div style="margin-top:18px;font-size:17px">${s.body.map(p => `<p>${p}</p>`).join('')}</div>
     <h3 class="h3" style="margin-top:36px">Характеристики</h3>
@@ -810,12 +811,12 @@ function buildSpace() {
         .map(([k, v]) => `<div class="spec"><b>${k}</b><span class="mono" style="font-weight:600">${v}</span></div>`).join('')}
     </div>
     <h3 class="h3" style="margin-top:36px">Что входит в ставку</h3>
-    <div class="g2" style="gap:12px;margin-top:16px">
+    <div class="g2">
       ${[['+', 'Отопление'], ['+', 'Охрана 24 ч, видеонаблюдение, пропускной режим'], ['+', 'Клининг мест общего пользования'], ['+', 'Гостевая парковка'], ['—', 'Электроэнергия по счётчику'], ['—', 'Вывоз мусора']]
         .map(([m, t]) => `<div style="display:flex;gap:12px;padding:15px 18px;background:${m === '+' ? 'var(--bg2)' : 'transparent'};border:1px solid ${m === '+' ? 'transparent' : 'var(--line)'};border-radius:var(--r2)"><b style="color:${m === '+' ? 'var(--gold-dk)' : 'var(--ink3)'}">${m}</b><span>${t}</span></div>`).join('')}
     </div>
   </div>
-  <aside class="side" style="width:400px">
+  <aside class="side">
     <div class="card pad"><div class="h4">Транспорт</div>
       <div style="margin-top:8px">
         ${[['Метро «Академическая»', '10 минут'], ['Метро «Гражданский проспект»', '10 минут'], ['Платформа Ручьи', '50 метров'], ['До КАД', '500 метров'], ['До Финляндского вокзала', '18 минут на электричке']]
@@ -832,14 +833,14 @@ function buildSpace() {
   </aside>
 </section>
 
-<section class="wrap split hide" data-panel="plan" data-scope="r" style="padding-top:44px;padding-bottom:72px;gap:44px">
+<section class="wrap sec split hide" data-panel="plan" data-scope="r" >
   <div class="grow"><hr class="rule-gold"><h2 class="h2">Планировка</h2>
     <p class="lead" style="margin-top:12px">Помещение 307 на плане третьего этажа административно-бытового корпуса.</p>
     ${ph('План 3 этажа, помещение 307', 'height:500px;border-radius:var(--r3);margin-top:22px')}
     <div class="row" style="margin-top:18px"><a class="btn btn-q btn-sm auto" href="#">Скачать план этажа</a>
       <a class="btn btn-q btn-sm auto" href="object-ruchi.html">Все планы площадки</a></div>
   </div>
-  <aside class="side" style="width:390px">
+  <aside class="side">
     <div style="background:var(--bg2);border-radius:var(--r3);padding:28px">
       <div class="h4">Можно расшириться</div>
       <p class="small" style="margin-top:12px">На той же площадке свободны другие помещения — при росте компании можно занять соседнее или добавить склад, не переезжая по городу.</p>
@@ -848,7 +849,7 @@ function buildSpace() {
   </aside>
 </section>
 
-<section class="wrap split hide" data-panel="docs" data-scope="r" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec split hide" data-panel="docs" data-scope="r" >
   <div class="grow prose"><hr class="rule-gold"><h2 class="h2">Документы для заезда</h2>
     <p class="lead" style="margin-top:12px">Можно изучить до просмотра — на подписании ничего не всплывёт.</p>
     <div style="margin-top:24px">
@@ -856,8 +857,8 @@ function buildSpace() {
         .map(([e, t, d]) => `<div class="doc"><span class="ext">${e}</span><span class="nm"><b>${t}</b><div class="small">${d}</div></span><span class="go">Скачать</span></div>`).join('')}
     </div>
   </div>
-  <aside class="side" style="width:400px">
-    <div style="border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r3);padding:28px">
+  <aside class="side">
+    <div style="border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);padding:28px">
       <div class="h4">Вопросы по договору</div>
       <p class="small" style="margin-top:12px">Отдел аренды разберёт любой пункт до подписания.</p>
       <a class="mono" href="tel:${SITE.rentHref}" style="font-family:var(--disp);font-size:24px;color:var(--brand);display:block;margin-top:16px">${SITE.rent}</a>
@@ -894,7 +895,7 @@ function buildSale() {
           <span class="badge badge-sale" style="flex-shrink:0">В продаже</span>
         </div>
         <p style="margin-top:14px;max-width:62ch">${o.lead}</p>
-        <div class="g4" style="gap:16px;margin-top:22px;padding-top:22px;border-top:1px solid var(--line2)">
+        <div class="g4">
           <div><div class="mono" style="font-size:20px;font-weight:600;color:var(--brand)">${o.price} ₽</div><div class="cap" style="font-size:10px;margin-top:3px">цена</div></div>
           <div><div class="mono" style="font-size:20px;font-weight:600;color:var(--brand)">${o.map}</div><div class="cap" style="font-size:10px;margin-top:3px">арендный поток</div></div>
           <div><div class="mono" style="font-size:20px;font-weight:600;color:var(--brand)">${o.payback}</div><div class="cap" style="font-size:10px;margin-top:3px">окупаемость</div></div>
@@ -905,7 +906,7 @@ function buildSale() {
   </a>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:26px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Продажа объектов</h1>
   <p class="lead prose" style="margin-top:16px">Готовый арендный бизнес от собственника: торговые помещения в комплексе на Карпинского с федеральными сетевыми арендаторами и офисно-производственно-складское здание на Электропультовцев. Все объекты сданы в аренду, коммунальные услуги оплачивают арендаторы.</p>
   <div class="stats" style="margin-top:32px">
@@ -915,8 +916,8 @@ function buildSale() {
     <div><div class="stat-n">2%</div><div class="cap" style="margin-top:6px">комиссия агентам</div></div>
   </div>
 </section>
-<section class="wrap" style="padding-bottom:64px">${rows}</section>
-${ctaBlock('Показать объект и документы', 'Организуем просмотр, покажем договоры аренды и подтверждение арендного потока.')}`;
+<section class="wrap sec">${rows}</section>
+${ctaBlock('Посмотреть объект и документы', 'Организуем просмотр, покажем договоры аренды и подтверждение арендного потока.')}`;
 
   return page({
     file: 'sale.html', active: 'sale.html', title: 'Продажа объектов — готовый арендный бизнес · БАСТИОН',
@@ -936,7 +937,7 @@ function buildSaleItem(o) {
         <div class="mono" style="font-size:16px;font-weight:600;margin-top:12px">${x.price} ₽</div></div></a>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:22px;padding-bottom:26px">
+<section class="wrap sec">
   <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
     <div><span class="badge badge-sale">В продаже</span>
       <h1 class="h1" style="margin-top:14px">${o.name} — ${o.area} м²</h1>
@@ -946,7 +947,7 @@ function buildSaleItem(o) {
   </div>
 </section>
 
-<section class="wrap split" style="padding-bottom:60px;gap:44px">
+<section class="wrap sec split">
   <div class="grow" data-gallery>
     ${ph(o.photos[0], 'height:500px;border-radius:var(--r3)')}
     <div class="thumbs" style="margin-top:12px">${thumbs}</div>
@@ -961,7 +962,7 @@ function buildSaleItem(o) {
     </div>
   </div>
 
-  <aside class="side" style="width:420px" id="zayavka">
+  <aside class="side" id="zayavka">
     <div style="border:1px solid var(--line);border-radius:var(--r3);overflow:hidden;position:sticky;top:108px">
       <div class="statbox" style="border:none;border-radius:0">
         <div><div class="mono" style="font-size:22px;font-weight:600;color:var(--brand)">${o.area}</div><div class="cap" style="margin-top:5px">м²</div></div>
@@ -1018,9 +1019,9 @@ function buildTenants() {
   const schedule = OBJECTS.map(o => `<div class="spec"><b>${o.short}</b><span class="mono" style="font-weight:600">${o.hours}</span></div>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:30px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Арендаторам</h1>
-  <p class="lead prose" style="margin-top:16px">Всё, что нужно действующему арендатору: бланки и документы по каждой площадке, порядок оформления пропусков, заявка в службу эксплуатации и график работы бизнес-центров.</p>
+  <p class="lead prose" style="margin-top:16px">Бланки и документы по каждой площадке, порядок оформления пропусков, заявка в службу эксплуатации, график работы.</p>
 </section>
 
 <div class="wrap"><div class="tabs" data-tabs="t">
@@ -1030,9 +1031,9 @@ function buildTenants() {
   <button class="tab" data-tab="grafik">График работы</button>
 </div></div>
 
-<section class="wrap split" data-panel="docs" data-scope="t" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec split">
   <div class="grow">${allDocs}</div>
-  <aside class="side" style="width:370px">
+  <aside class="side">
     <div style="background:var(--bg2);border-radius:var(--r3);padding:28px">
       <div class="h4">Сервисная служба</div>
       <p class="small" style="margin-top:12px">Личный кабинет арендатора: заявки, статусы, история обращений.</p>
@@ -1051,7 +1052,7 @@ function buildTenants() {
   </aside>
 </section>
 
-<section class="wrap split hide" data-panel="propuska" data-scope="t" id="propuska" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec split hide" data-panel="propuska" data-scope="t" id="propuska" >
   <div class="grow prose">
     <hr class="rule-gold"><h2 class="h2">Пропускной режим</h2>
     <p class="lead" style="margin-top:16px">На всех объектах сети действует пропускной режим, охрана работает круглосуточно. Пропуска оформляются по заявке от арендатора.</p>
@@ -1064,7 +1065,7 @@ function buildTenants() {
     <h3 class="h3" style="margin-top:28px">Выходные дни</h3>
     <p>Проход сотрудников в выходные дни при неработающем ресепшн оформляется отдельной заявкой.</p>
   </div>
-  <aside class="side" style="width:390px">
+  <aside class="side">
     <div class="card pad"><div class="h4">Бланки для пропусков</div>
       <div style="margin-top:10px">
         ${['Список сотрудников фирмы', 'Список на получение ключей', 'Служебная записка на постоянный автопропуск', 'Служебная записка на временный автопропуск', 'Пропуск для велосипеда или самоката', 'Пропуск для проезда на мотоцикле', 'Заявка на допуск подрядчиков', 'Заявка на проход в выходные дни']
@@ -1074,7 +1075,7 @@ function buildTenants() {
   </aside>
 </section>
 
-<section class="wrap split hide" data-panel="zayavka" data-scope="t" id="zayavka-inzheneru" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec split hide" data-panel="zayavka" data-scope="t" id="zayavka-inzheneru" >
   <div class="grow prose">
     <hr class="rule-gold"><h2 class="h2">Заявка в службу эксплуатации</h2>
     <p class="lead" style="margin-top:16px">Электрика, отопление, водоснабжение, замки и двери — по заявке к главному инженеру объекта. Аварийные ситуации решаются по телефону напрямую.</p>
@@ -1088,8 +1089,8 @@ function buildTenants() {
       <div class="spec"><b>Ресепшн технопарка «Литовская, 10»</b><a class="mono" href="tel:+78122928415" style="font-weight:600">+7 812 292-84-15</a></div>
     </div>
   </div>
-  <aside class="side" style="width:420px">
-    <div style="border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:var(--r3);padding:30px">
+  <aside class="side">
+    <div style="border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:0 0 var(--r3) var(--r3);padding:30px">
       <form data-form="eng">
         <div class="h4">Новая заявка</div>
         <div class="cap" style="margin:18px 0 8px">Что случилось</div>
@@ -1113,7 +1114,7 @@ function buildTenants() {
   </aside>
 </section>
 
-<section class="wrap hide" data-panel="grafik" data-scope="t" id="grafik" style="padding-top:44px;padding-bottom:72px">
+<section class="wrap sec hide" data-panel="grafik" data-scope="t" id="grafik" >
   <div class="split">
     <div class="grow prose"><hr class="rule-gold"><h2 class="h2">График работы</h2>
       <p class="lead" style="margin-top:16px">Режим работы бизнес-центров сети. Охрана на объектах работает круглосуточно; проход в нерабочие часы — по заявке.</p>
@@ -1122,7 +1123,7 @@ function buildTenants() {
       <p>В государственные праздники бизнес-центры «Технопарк», «Менделеевский» и «Ручьи» работают в режиме выходного дня. Об изменениях графика сообщаем заранее в разделе «Новости».</p>
       <a class="btn btn-s auto" style="margin-top:18px" href="news.html">Смотреть объявления</a>
     </div>
-    <aside class="side" style="width:370px">
+    <aside class="side">
       <div class="card pad"><div class="h4">Полезные телефоны</div>
         <div style="margin-top:16px">
           <div class="spec"><b>Отдел аренды</b><a class="mono" href="tel:${SITE.rentHref}" style="font-weight:600">${SITE.rent}</a></div>
@@ -1135,7 +1136,7 @@ function buildTenants() {
   </div>
 </section>
 
-${ctaBlock('Нужна другая площадь?', 'Если компания выросла — подберём помещение больше на той же площадке, переезжать по городу не придётся.')}`;
+${ctaBlock('Выросли и нужно больше места?', 'Подберём помещение крупнее на той же площадке. Переезжать по городу не придётся.')}`;
 
   return page({
     file: 'tenants.html', active: 'tenants.html', title: 'Арендаторам — документы, пропуска, график работы · БАСТИОН',
@@ -1154,10 +1155,10 @@ function buildAbout() {
     <span class="nm"><b>${a.t}</b><div class="small">${a.s}</div></span><span class="go">Читать →</span></a>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:20px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">О сети «Бастион»</h1>
 </section>
-<section class="wrap split" style="padding-bottom:72px">
+<section class="wrap sec split">
   <div class="grow prose" style="font-size:17px">
     ${ABOUT.map(p => `<p>${p}</p>`).join('')}
     <div class="stats" style="margin-top:40px">
@@ -1166,7 +1167,7 @@ function buildAbout() {
       <div><div class="stat-n">C+</div><div class="cap" style="margin-top:8px">класс объектов</div></div>
     </div>
   </div>
-  <aside class="side" style="width:400px">
+  <aside class="side">
     ${ph('Панорама технопарка «Литовская, 10»', 'height:280px;border-radius:var(--r3)')}
     <div class="card pad" style="margin-top:24px">
       <div class="h4">Реквизиты и документы</div>
@@ -1177,8 +1178,8 @@ function buildAbout() {
 </section>
 
 <section class="sec sec-cream">
-  <div class="wrap"><div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Наши преимущества</h2></div></div>
-  <div class="g3" style="gap:36px 32px">${advs}</div></div>
+  <div class="wrap"><div class="sechead"><div><hr class="rule-gold"><h2 class="h2">Что есть на площадках</h2></div></div>
+  <div class="g3">${advs}</div></div>
 </section>
 
 <section class="sec" id="usloviya">
@@ -1194,13 +1195,13 @@ function buildAbout() {
 
 <section class="sec sec-cream">
   <div class="wrap split">
-    <div style="width:360px;flex-shrink:0"><hr class="rule-gold"><h2 class="h2">Публикации</h2>
+    <div class="side"><hr class="rule-gold"><h2 class="h2">Публикации</h2>
       <p class="lead" style="margin-top:16px">Материалы «Делового Петербурга» с участием сети — о выборе помещения и рынке аренды.</p></div>
     <div class="grow">${arts}</div>
   </div>
 </section>
 
-${ctaBlock('Рассмотрим предложения по недвижимости', 'Мы открыты для любого взаимовыгодного сотрудничества, в том числе рассматриваем предложения по приобретению в собственность объектов коммерческой недвижимости в Санкт-Петербурге.')}`;
+${ctaBlock('Продаёте коммерческий объект в Петербурге?', 'Рассматриваем предложения по приобретению в собственность. Напишите или позвоните — посмотрим.')}`;
 
   return page({
     file: 'about.html', active: 'about.html', title: 'О сети бизнес-центров «Бастион» — класс C+ в Санкт-Петербурге',
@@ -1221,7 +1222,7 @@ function buildContacts() {
             <p class="small">График работы: ${o.hours}</p></div>
           <a class="btn btn-s btn-sm auto" href="${o.slug}.html">О площадке</a>
         </div>
-        <div class="g3" style="gap:18px;margin-top:24px;padding-top:24px;border-top:1px solid var(--line2)">
+        <div class="g3">
           ${o.contacts.map(c => `<div><div class="cap">${c.role}</div>
             <a class="mono" href="${c.href.startsWith('mailto') ? c.href : 'tel:' + c.href}" style="font-family:var(--disp);font-size:19px;color:var(--brand);display:block;margin-top:6px">${c.v}</a>
             <p class="small" style="margin-top:4px">${c.d}</p></div>`).join('')}
@@ -1230,12 +1231,12 @@ function buildContacts() {
     </div>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:30px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Контакты</h1>
   <p class="lead prose" style="margin-top:16px">Общие телефоны сети и контакты по каждой площадке: отдел аренды, управляющий, главный инженер, охрана.</p>
 </section>
 
-<section class="wrap" style="padding-bottom:44px">
+<section class="wrap sec">
   <div class="g4">
     <div class="card pad"><div class="adv-i" style="margin-bottom:16px">${ic('phone')}</div>
       <div class="cap">Общий телефон сети</div>
@@ -1253,19 +1254,19 @@ function buildContacts() {
   </div>
 </section>
 
-<section class="wrap" style="padding-bottom:24px"><h2 class="h2">Контакты по площадкам</h2></section>
-<section class="wrap" style="padding-bottom:56px">${objs}</section>
+<section class="wrap sec"><h2 class="h2">Контакты по площадкам</h2></section>
+<section class="wrap sec">${objs}</section>
 
-<section class="wrap" style="padding-bottom:72px">
+<section class="wrap sec">
   ${ph('Карта: четыре площадки сети в Санкт-Петербурге', 'height:400px;border-radius:var(--r3)')}
 </section>
 
-<section class="sec sec-dark" id="zayavka">
-  <div class="wrap split" style="gap:72px">
+<section class="sec" id="zayavka" style="border-top:1px solid var(--line)">
+  <div class="wrap split">
     <div class="grow"><hr class="rule-gold"><h2 class="h2">Обратный звонок</h2>
       <p class="lead" style="margin-top:18px;max-width:46ch">Оставьте номер — менеджер сети перезвонит по указанному телефону и ответит на вопросы по аренде.</p>
       <p class="small" style="margin-top:26px">${SITE.addr}</p></div>
-    <div class="side" style="background:#fff;color:var(--ink);border-radius:var(--r3);padding:36px">
+    <div class="side" style="background:#fff;border:1px solid var(--line);border-radius:var(--r3);padding:32px">
       ${leadForm('contacts', 'Заказать звонок', 'Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.')}
     </div>
   </div>
@@ -1292,16 +1293,16 @@ function buildNews() {
     </article>`;
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:30px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Новости</h1>
-  <p class="lead prose" style="margin-top:16px">Объявления для арендаторов: график работы в праздничные дни, тренировки по пожарной безопасности, поздравления. Отдельно — новости рынка недвижимости.</p>
+  <p class="lead prose" style="margin-top:16px">Объявления для арендаторов: график работы в праздники, тренировки по пожарной безопасности, поздравления. Ниже — новости рынка недвижимости.</p>
 </section>
-<section class="wrap" style="padding-bottom:72px">
-  <div class="col" style="gap:20px">${NEWS.filter(n => n.c === 'company').map(item).join('')}</div>
+<section class="wrap sec">
+  <div class="col" style="gap:24px">${NEWS.filter(n => n.c === 'company').map(item).join('')}</div>
   <h2 class="h2" style="margin-top:56px;margin-bottom:24px">Новости недвижимости</h2>
-  <div class="col" style="gap:20px">${NEWS.filter(n => n.c === 'estate').map(item).join('')}</div>
+  <div class="col" style="gap:24px">${NEWS.filter(n => n.c === 'estate').map(item).join('')}</div>
 </section>
-${ctaBlock('График работы в праздники', 'Об изменениях режима работы бизнес-центров сообщаем заранее — здесь и в разделе «Арендаторам».')}`;
+${ctaBlock('График работы в праздники', 'Об изменениях режима сообщаем заранее: здесь и в разделе «Арендаторам».')}`;
 
   return page({
     file: 'news.html', active: 'news.html', title: 'Новости — БАСТИОН, сеть бизнес-центров',
@@ -1314,7 +1315,7 @@ ${ctaBlock('График работы в праздники', 'Об измене
 
 function buildPrivacy() {
   const body = `
-<section class="wrap split" style="padding-top:28px;padding-bottom:72px">
+<section class="wrap sec split">
   <div class="grow prose">
     <hr class="rule-gold"><h1 class="h1">Политика в отношении обработки персональных данных</h1>
     <p class="lead" style="margin-top:18px">Настоящая политика определяет порядок обработки персональных данных пользователей сайта сети бизнес-центров «Бастион».</p>
@@ -1330,7 +1331,7 @@ function buildPrivacy() {
     <h3 class="h3" style="margin-top:28px">Контакты</h3>
     <p>Сеть бизнес-центров «Бастион», ${SITE.addr}. Телефон ${SITE.phone}, почта ${SITE.email}.</p>
   </div>
-  <aside class="side" style="width:340px">
+  <aside class="side">
     <div class="card pad"><div class="h4">Настройки cookies</div>
       <p class="small" style="margin-top:12px">Технические cookies необходимы для работы сайта и всегда включены. Аналитические можно отключить.</p>
       <div class="col" style="margin-top:18px">
@@ -1357,11 +1358,11 @@ function buildSitemap() {
   const saleLinks = SALE.map(o => `<li><a href="sale-${o.slug}.html">${o.name} — ${o.area} м², ${o.price} ₽</a></li>`).join('');
 
   const body = `
-<section class="wrap" style="padding-top:28px;padding-bottom:30px">
+<section class="wrap sec">
   <hr class="rule-gold"><h1 class="h1">Карта сайта</h1>
   <p class="lead prose" style="margin-top:16px">Структура сайта целиком. Витрина для тех, кто выбирает помещение, и раздел «Арендаторам» для тех, кто уже работает в сети, разведены.</p>
 </section>
-<section class="wrap split" style="padding-bottom:80px">
+<section class="wrap sec split">
   <div class="grow tree">
     <ul>
       <li><a href="index.html">Главная</a></li>
@@ -1384,7 +1385,7 @@ function buildSitemap() {
       <li><a href="privacy.html">Политика обработки персональных данных</a></li>
     </ul>
   </div>
-  <aside class="side" style="width:360px">
+  <aside class="side">
     <div class="card pad"><div class="h4">Что изменилось в структуре</div>
       <div class="col" style="margin-top:16px;gap:14px">
         <p class="small" style="margin:0"><b style="color:var(--brand)">Витрина и обслуживание разведены.</b> «Площадки» — для того, кто выбирает помещение. «Арендаторам» — для того, кто уже арендует: бланки, пропуска, заявки, график.</p>
