@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>БАСТИОН — сеть бизнес-центров в Петербурге · прототип</title>
+<meta name="description" content="Прототип сайта сети бизнес-центров «Бастион»: производство, склад и офис на одной территории. Четыре площадки, 55 800 м².">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/bastion.css">
+</head>
+<body>
+
+<div style="background:#0f0f0f;color:#fff;font-size:12px;padding:9px 0">
+  <div class="wrap" style="display:flex;gap:16px;justify-content:space-between;flex-wrap:wrap">
+    <span>Прототип сайта, направление B «Сеть площадок». Не боевой сайт. Данные сняты с bastion.spb.ru 03.09.2026.</span>
+    <span style="color:#8a8a8a">Пунктиром в [скобках] — то, чего у заказчика ещё нет</span>
+  </div>
+</div>
+
+<header class="hdr">
+  <div class="wrap hdr-in">
+    <div style="display:flex;align-items:center;gap:48px">
+      <a class="logo" href="index.html">БАСТИОН</a>
+      <nav class="nav">
+        <a href="index.html" class="on">Площадки</a>
+        <a href="katalog.html">Свободные площади</a>
+        <a href="katalog.html">Продажа</a>
+        <a href="kabinet.html">Арендаторам</a>
+        <a href="sistema.html">О сети</a>
+        <a href="#kontakty">Контакты</a>
+      </nav>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px">
+      <div class="hdr-cta" style="text-align:right">
+        <a class="mono" href="tel:+78123335103" style="font-size:15px;font-weight:600">+7 812 333 51 03</a>
+        <div class="cap" style="font-size:10px">Пн–Пт 07:00–22:00</div>
+      </div>
+      <a class="btn btn-p auto hdr-cta" href="katalog.html">Подобрать помещение</a>
+      <button class="burger" data-burger aria-label="Меню"><i></i><i></i><i></i></button>
+    </div>
+  </div>
+  <div class="wrap hide" data-mobnav style="padding-bottom:16px">
+    <div class="col" style="gap:0">
+      <a href="index.html" style="padding:12px 0;border-bottom:1px solid var(--line2)">Площадки</a>
+      <a href="katalog.html" style="padding:12px 0;border-bottom:1px solid var(--line2)">Свободные площади</a>
+      <a href="pomeshchenie.html" style="padding:12px 0;border-bottom:1px solid var(--line2)">Карточка помещения</a>
+      <a href="kabinet.html" style="padding:12px 0;border-bottom:1px solid var(--line2)">Арендаторам</a>
+      <a href="sistema.html" style="padding:12px 0">Дизайн-система</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ ГЕРОЙ ═══ -->
+<section class="wrap" style="padding-top:64px;padding-bottom:48px">
+  <div class="split">
+    <div style="width:480px;flex-shrink:0">
+      <div class="cap" style="margin-bottom:20px">Санкт-Петербург · <span class="need">с [года]</span></div>
+      <h1 class="d1">Сеть бизнес-центров в&nbsp;северных районах Петербурга</h1>
+      <p class="lead" style="margin-top:20px">Четыре площадки, где производство, склад и офис держатся на одной территории. Корпуса сообщаются цельными этажами — не нужно разносить бизнес по трём точкам города.</p>
+
+      <div class="stats" style="margin-top:36px">
+        <div><div class="stat-n">55 800</div><div class="cap" style="margin-top:6px">м² в сети</div></div>
+        <div><div class="stat-n">4</div><div class="cap" style="margin-top:6px">площадки</div></div>
+        <div><div class="stat-n">30</div><div class="cap" style="margin-top:6px">свободно</div></div>
+        <div><div class="stat-n">5—1800</div><div class="cap" style="margin-top:6px">м² лот</div></div>
+      </div>
+
+      <div class="row" style="margin-top:36px">
+        <a class="btn btn-p btn-lg" href="katalog.html">Свободные площади</a>
+        <a class="btn btn-s btn-lg" href="#zayavka">Записаться на просмотр</a>
+      </div>
+    </div>
+
+    <div class="grow">
+      <div class="map" data-map>
+        <div class="map-kad"></div>
+        <div class="map-road" style="left:-10%;top:30%;width:120%;height:1px;transform:rotate(-4deg)"></div>
+        <div class="map-road" style="left:-10%;top:62%;width:120%;height:1px;transform:rotate(3deg)"></div>
+        <div class="map-road" style="left:34%;top:-10%;width:1px;height:120%;transform:rotate(9deg)"></div>
+        <div class="map-road" style="left:72%;top:-10%;width:1px;height:120%;transform:rotate(-7deg)"></div>
+        <div class="map-neva"></div>
+        <div style="position:absolute;left:4%;bottom:4%;font-size:11px;color:#b0b0b0;letter-spacing:.1em;text-transform:uppercase">Нева</div>
+        <div style="position:absolute;right:5%;top:6%;font-size:11px;color:#b0b0b0;letter-spacing:.1em;text-transform:uppercase">КАД</div>
+        <div class="map-card" data-map-card></div>
+      </div>
+      <div class="small" style="margin-top:12px;color:var(--ink3)">Схема. Нажмите точку или наведите на карточку площадки ниже.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ПОДБОР ═══ -->
+<section class="wrap" style="padding-bottom:72px">
+  <div style="border:1px solid var(--ink);border-radius:var(--r3);padding:28px 32px">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px">
+      <h2 class="h3">Подобрать помещение</h2>
+      <div class="cap">Обновлено 13.08.2026</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px" data-homechips>
+      <button class="chip on" data-use="all">Все <span class="n">30</span></button>
+      <button class="chip" data-use="off">Офис <span class="n">21</span></button>
+      <button class="chip" data-use="wh">Склад <span class="n">3</span></button>
+      <button class="chip" data-use="prod">Производство <span class="n">1</span></button>
+      <button class="chip" data-use="land">Участок <span class="n">2</span></button>
+      <button class="chip" data-use="free">Свободного назначения <span class="n">3</span></button>
+    </div>
+    <div class="row">
+      <input class="fld" placeholder="Площадь, м² — от 10 до 200">
+      <input class="fld" placeholder="Площадка — любая">
+      <input class="fld" placeholder="Этаж — любой">
+      <a class="btn btn-p auto" href="katalog.html" style="min-width:200px">Показать <span data-homecount>30</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ПЛОЩАДКИ ═══ -->
+<section class="wrap" style="padding-bottom:80px">
+  <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin-bottom:28px">
+    <h2 class="h2">Четыре площадки</h2>
+    <a class="small" style="font-weight:600;color:var(--ink)" href="ploshchadka.html">Все площадки →</a>
+  </div>
+
+  <div class="g2">
+    <a class="card" href="ploshchadka.html" data-sitecard="L10" style="display:block">
+      <div class="ph" style="height:220px;border:none;border-bottom:1px solid var(--line)"></div>
+      <div class="pad">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div><div class="h3">Технопарк «Литовская, 10»</div>
+            <div class="cap" style="margin-top:6px">Выборгский район · ул. Литовская, 10</div></div>
+          <span class="badge badge-hold" style="flex-shrink:0">14 свободно</span>
+        </div>
+        <p class="small" style="margin-top:12px">Пять корпусов: офисный, складские, производственные. Самая большая площадка сети.</p>
+        <div class="g4" style="gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line2)">
+          <div><div class="mono" style="font-size:19px;font-weight:600">32 000</div><div class="cap" style="font-size:10px">м²</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">5</div><div class="cap" style="font-size:10px">корпусов</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">5</div><div class="cap" style="font-size:10px">этажей</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">3</div><div class="cap" style="font-size:10px">лифт, т</div></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px">
+          <div class="small">м. Лесная — 10 мин пешком</div>
+          <div class="small" style="font-weight:600;color:var(--ink);white-space:nowrap">Смотреть →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card on" href="ploshchadka.html" data-sitecard="R13" style="display:block">
+      <div class="ph" style="height:220px;border:none;border-bottom:1px solid var(--line)"></div>
+      <div class="pad">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div><div class="h3">БЦ «Ручьи»</div>
+            <div class="cap" style="margin-top:6px">Калининский район · ул. Руставели, 13</div></div>
+          <span class="badge badge-free" style="flex-shrink:0">7 свободно</span>
+        </div>
+        <p class="small" style="margin-top:12px">АБК на 11 этажей и производственный корпус. Лучшая логистика в сети.</p>
+        <div class="g4" style="gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line2)">
+          <div><div class="mono" style="font-size:19px;font-weight:600">12 316</div><div class="cap" style="font-size:10px">м²</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">2</div><div class="cap" style="font-size:10px">корпуса</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">11</div><div class="cap" style="font-size:10px">этажей</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">3,2</div><div class="cap" style="font-size:10px">лифт, т</div></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px">
+          <div class="small">м. Академическая — 10 мин · КАД 500 м</div>
+          <div class="small" style="font-weight:600;color:var(--ink);white-space:nowrap">Смотреть →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ploshchadka.html" data-sitecard="M9" style="display:block">
+      <div class="ph" style="height:220px;border:none;border-bottom:1px solid var(--line)"></div>
+      <div class="pad">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div><div class="h3">БЦ «Менделеевский»</div>
+            <div class="cap" style="margin-top:6px">Калининский район · ул. Менделеевская, 9</div></div>
+          <span class="badge badge-hold" style="flex-shrink:0">7 свободно</span>
+        </div>
+        <p class="small" style="margin-top:12px">Офисный и производственно-складской корпуса, сообщающиеся цельными этажами.</p>
+        <div class="g4" style="gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line2)">
+          <div><div class="mono" style="font-size:19px;font-weight:600">11 500</div><div class="cap" style="font-size:10px">м²</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">2</div><div class="cap" style="font-size:10px">корпуса</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">6</div><div class="cap" style="font-size:10px">этажей</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">3</div><div class="cap" style="font-size:10px">лифт, т</div></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px">
+          <div class="small"><span class="need">станцию метро уточняем</span></div>
+          <div class="small" style="font-weight:600;color:var(--ink);white-space:nowrap">Смотреть →</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="card" href="ploshchadka.html" data-sitecard="KP" style="display:block">
+      <div class="ph" style="height:220px;border:none;border-bottom:1px solid var(--line)"></div>
+      <div class="pad">
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px">
+          <div><div class="h3">Карпинского, 38к1</div>
+            <div class="cap" style="margin-top:6px">Калининский район · ул. Карпинского, 38, к1</div></div>
+          <span class="badge badge-hold" style="flex-shrink:0">2 свободно</span>
+        </div>
+        <p class="small" style="margin-top:12px"><span class="need">Торговый комплекс. Описания на текущем сайте нет — нужен текст от заказчика.</span></p>
+        <div class="g4" style="gap:12px;margin-top:20px;padding-top:20px;border-top:1px solid var(--line2)">
+          <div><div class="mono" style="font-size:19px;font-weight:600"><span class="need">[N]</span></div><div class="cap" style="font-size:10px">м²</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">ТК</div><div class="cap" style="font-size:10px">формат</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">—</div><div class="cap" style="font-size:10px">этажей</div></div>
+          <div><div class="mono" style="font-size:19px;font-weight:600">4</div><div class="cap" style="font-size:10px">ГАБ в продаже</div></div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:20px">
+          <div class="small">Пн–Вс 09:00–22:00</div>
+          <div class="small" style="font-weight:600;color:var(--ink);white-space:nowrap">Смотреть →</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ ПОЛНЫЙ ЦИКЛ ═══ -->
+<section class="sec sec-grey">
+  <div class="wrap split">
+    <div style="width:400px;flex-shrink:0">
+      <h2 class="h2">Полный цикл<br>на одной территории</h2>
+      <p class="lead" style="margin-top:18px">Главное отличие от обычного бизнес-центра: можно поставить станок, рядом держать склад, а этажом выше — отдел продаж. Отгрузка идёт из охраняемого двора.</p>
+      <a class="btn btn-s auto" style="margin-top:28px" href="ploshchadka.html">Как это устроено</a>
+    </div>
+    <div class="grow g4" style="gap:12px">
+      <div class="card pad" style="background:#fff">
+        <div class="cap">Этап 1</div><div class="h4" style="margin-top:10px">Производство</div>
+        <div class="mono small" style="margin-top:8px">40—500 м²<br>лифт 3 т<br>подъезд для фуры</div>
+      </div>
+      <div class="card pad" style="background:#fff">
+        <div class="cap">Этап 2</div><div class="h4" style="margin-top:10px">Склад</div>
+        <div class="mono small" style="margin-top:8px">40—500 м²<br>разгрузка во дворе<br>охрана 24 ч</div>
+      </div>
+      <div class="card pad" style="background:#fff">
+        <div class="cap">Этап 3</div><div class="h4" style="margin-top:10px">Офис</div>
+        <div class="mono small" style="margin-top:8px">10—200 м²<br>этажом выше<br>кабинет или опенспейс</div>
+      </div>
+      <div class="card pad" style="background:#fff">
+        <div class="cap">Этап 4</div><div class="h4" style="margin-top:10px">Отгрузка</div>
+        <div class="mono small" style="margin-top:8px">охраняемый двор<br>КАД 500 м (Ручьи)<br>пропускной режим</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ СВОБОДНО СЕЙЧАС ═══ -->
+<section class="sec">
+  <div class="wrap">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px">
+      <h2 class="h2">Свободно сейчас</h2>
+      <div style="display:flex;align-items:baseline;gap:24px">
+        <span class="cap"><span data-homecount>30</span> из 30 · обновлено 13.08.2026</span>
+        <a class="small" style="font-weight:600;color:var(--ink)" href="katalog.html">Весь каталог →</a>
+      </div>
+    </div>
+    <table class="tbl">
+      <thead><tr>
+        <th>Площадка</th><th>Помещение</th><th class="r">Площадь</th><th class="r">Этаж</th>
+        <th>Назначение</th><th class="r">₽/м²·мес</th><th>Статус</th><th></th>
+      </tr></thead>
+      <tbody data-hometable></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ═══ УСЛОВИЯ ═══ -->
+<section class="wrap" style="padding-bottom:80px">
+  <h2 class="h2" style="margin-bottom:24px">Условия аренды — без сюрпризов</h2>
+  <div class="g4">
+    <div class="card pad"><div class="stat-n">11</div><div class="h4" style="margin-top:12px">месяцев</div>
+      <p class="small" style="margin-top:6px">Срок договора. Продление без переподписания с нуля.</p></div>
+    <div class="card pad"><div class="stat-n">1 + 1</div><div class="h4" style="margin-top:12px">платежа на входе</div>
+      <p class="small" style="margin-top:6px">Первый месяц и обеспечительный платёж. Возврат при выезде.</p></div>
+    <div class="card pad"><div class="stat-n">вкл.</div><div class="h4" style="margin-top:12px">отопление в ставке</div>
+      <p class="small" style="margin-top:6px">Отдельно — электричество и вывоз мусора, <span class="need">около [суммы] на 50 м²</span>.</p></div>
+    <div class="card pad"><div class="stat-n"><span class="need">[N]</span></div><div class="h4" style="margin-top:12px">дней каникул</div>
+      <p class="small" style="margin-top:6px">На ремонт, если берёте свободную планировку под себя.</p></div>
+  </div>
+</section>
+
+<!-- ═══ ДОВЕРИЕ ═══ -->
+<section class="sec sec-grey">
+  <div class="wrap split">
+    <div style="width:400px;flex-shrink:0">
+      <h2 class="h2">Кто у нас работает</h2>
+      <div class="stats" style="margin-top:28px">
+        <div><div class="stat-n"><span class="need">[N]</span></div><div class="cap" style="margin-top:4px">лет сети</div></div>
+        <div><div class="stat-n"><span class="need">[N]</span></div><div class="cap" style="margin-top:4px">арендаторов</div></div>
+        <div><div class="stat-n"><span class="need">[N]%</span></div><div class="cap" style="margin-top:4px">занято</div></div>
+      </div>
+      <div class="g3" style="gap:12px;margin-top:28px">
+        <div class="ph" style="height:56px;border-radius:4px"></div><div class="ph" style="height:56px;border-radius:4px"></div>
+        <div class="ph" style="height:56px;border-radius:4px"></div><div class="ph" style="height:56px;border-radius:4px"></div>
+        <div class="ph" style="height:56px;border-radius:4px"></div><div class="ph" style="height:56px;border-radius:4px"></div>
+      </div>
+      <div class="small" style="margin-top:12px;color:var(--ink3)">Логотипы арендаторов — <span class="need">нужен список и согласие</span></div>
+    </div>
+    <div class="grow col" style="gap:20px">
+      <div class="card pad" style="background:#fff;padding:28px">
+        <div style="font-size:19px;line-height:1.5">«<span class="need">Начинали с кабинета на 30 м². Через два года заняли производство, склад и офис — всё в одном корпусе. Переезжать по городу больше не приходится.</span>»</div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:22px">
+          <div class="ph" style="width:48px;height:48px;border-radius:50%"></div>
+          <div><div class="h4"><span class="need">[Имя Фамилия]</span></div>
+            <div class="small"><span class="need">[должность, компания]</span> · арендатор с <span class="need">[год]</span></div></div>
+        </div>
+      </div>
+      <div class="card pad" style="background:#fff;padding:28px">
+        <div style="font-size:19px;line-height:1.5">«<span class="need">Второй отзыв — от торговой компании про склад и разгрузку.</span>»</div>
+        <div style="display:flex;align-items:center;gap:14px;margin-top:22px">
+          <div class="ph" style="width:48px;height:48px;border-radius:50%"></div>
+          <div><div class="h4"><span class="need">[Имя Фамилия]</span></div>
+            <div class="small"><span class="need">[должность, компания]</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ПРОДАЖА ═══ -->
+<section class="sec">
+  <div class="wrap">
+    <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px">
+      <div><h2 class="h2">Продажа объектов</h2>
+        <p class="small" style="margin-top:8px">Готовый арендный бизнес на Карпинского, 38 и Электропультовцев, 7К.</p></div>
+      <a class="small" style="font-weight:600;color:var(--ink)" href="katalog.html">Все объекты →</a>
+    </div>
+    <div class="g5">
+      <div class="card pad" style="padding:20px"><div class="ph" style="height:92px;border-radius:4px;margin-bottom:16px"></div>
+        <div class="mono" style="font-size:20px;font-weight:600">318 м²</div><div class="small" style="margin-top:4px">Карпинского, 38 · ГАБ</div>
+        <div class="mono" style="font-size:15px;font-weight:600;margin-top:12px">28 000 000 ₽</div>
+        <div class="small" style="margin-top:4px">доходность <span class="need">[N]%</span></div></div>
+      <div class="card pad" style="padding:20px"><div class="ph" style="height:92px;border-radius:4px;margin-bottom:16px"></div>
+        <div class="mono" style="font-size:20px;font-weight:600">264 м²</div><div class="small" style="margin-top:4px">Карпинского, 38 · ГАБ</div>
+        <div class="mono" style="font-size:15px;font-weight:600;margin-top:12px">35 000 000 ₽</div>
+        <div class="small" style="margin-top:4px">доходность <span class="need">[N]%</span></div></div>
+      <div class="card pad" style="padding:20px"><div class="ph" style="height:92px;border-radius:4px;margin-bottom:16px"></div>
+        <div class="mono" style="font-size:20px;font-weight:600">430 м²</div><div class="small" style="margin-top:4px">Карпинского, 38 · ГАБ</div>
+        <div class="mono" style="font-size:15px;font-weight:600;margin-top:12px">55 000 000 ₽</div>
+        <div class="small" style="margin-top:4px">доходность <span class="need">[N]%</span></div></div>
+      <div class="card pad" style="padding:20px"><div class="ph" style="height:92px;border-radius:4px;margin-bottom:16px"></div>
+        <div class="mono" style="font-size:20px;font-weight:600">1432 м²</div><div class="small" style="margin-top:4px">Электропультовцев, 7К</div>
+        <div class="mono" style="font-size:15px;font-weight:600;margin-top:12px">90 000 000 ₽</div>
+        <div class="small" style="margin-top:4px">доходность <span class="need">[N]%</span></div></div>
+      <div class="card pad" style="padding:20px"><div class="ph" style="height:92px;border-radius:4px;margin-bottom:16px"></div>
+        <div class="mono" style="font-size:20px;font-weight:600">1013 м²</div><div class="small" style="margin-top:4px">Карпинского, 38 · ГАБ</div>
+        <div class="mono" style="font-size:15px;font-weight:600;margin-top:12px">110 000 000 ₽</div>
+        <div class="small" style="margin-top:4px">доходность <span class="need">[N]%</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ВОПРОСЫ ═══ -->
+<section class="wrap" style="padding-bottom:80px">
+  <div class="split">
+    <div style="width:340px;flex-shrink:0">
+      <h2 class="h2">Частые вопросы</h2>
+      <p class="small" style="margin-top:14px">Если чего-то не хватает — спросите отдел аренды, ответим в тот же день.</p>
+      <a class="mono" href="tel:+79626883974" style="font-size:16px;font-weight:600;display:inline-block;margin-top:20px">+7 962 688-39-74</a>
+    </div>
+    <div class="grow" data-acc>
+      <div class="acc on">
+        <button class="acc-q"><span class="h4">Сколько стоит аренда?</span><span class="acc-sign">+</span></button>
+        <div class="acc-a">Ставка зависит от площадки, назначения и этажа. В ставку входит отопление; электроэнергия и вывоз мусора оплачиваются отдельно по счётчику. Точные цифры — в карточке каждого помещения. <span class="need">Заказчику: нужны ставки по каждому объекту и типу помещения — без них этот блок остаётся общими словами.</span></div>
+      </div>
+      <div class="acc">
+        <button class="acc-q"><span class="h4">На какой срок заключается договор?</span><span class="acc-sign">+</span></button>
+        <div class="acc-a">На 11 месяцев, с последующим продлением. На входе платите за первый месяц и вносите обеспечительный платёж, который возвращается при выезде.</div>
+      </div>
+      <div class="acc">
+        <button class="acc-q"><span class="h4">Можно ли поставить производство и станки?</span><span class="acc-sign">+</span></button>
+        <div class="acc-a">Да. Для этого есть отдельные производственные корпуса на Литовской и Менделеевской, а на Ручьях — производственный корпус с двумя грузовыми лифтами по 3,2 т. <span class="need">Заказчику: нужны высота потолков, нагрузка на пол и свободная электрическая мощность — это первое, что спрашивает производственник.</span></div>
+      </div>
+      <div class="acc">
+        <button class="acc-q"><span class="h4">Работаете с НДС или на УСН?</span><span class="acc-sign">+</span></button>
+        <div class="acc-a">По-разному на разных площадках: Литовская, 10 работает с НДС, Ручьи — на УСН. По Менделеевской режим нужно уточнить у отдела аренды. Если вы на ОСНО, скажите сразу — подберём подходящую площадку.</div>
+      </div>
+      <div class="acc">
+        <button class="acc-q"><span class="h4">Даёте юридический адрес?</span><span class="acc-sign">+</span></button>
+        <div class="acc-a">Да, предоставляем при необходимости. Условия уточняйте в отделе аренды.</div>
+      </div>
+      <div class="acc">
+        <button class="acc-q"><span class="h4">Есть ли арендные каникулы?</span><span class="acc-sign">+</span></button>
+        <div class="acc-a">Да, если берёте помещение со свободной планировкой и делаете ремонт под себя. <span class="need">Заказчику: нужен конкретный срок каникул и при каком сроке договора они даются.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ЗАЯВКА ═══ -->
+<section class="sec sec-dark" id="zayavka">
+  <div class="wrap split" style="gap:80px">
+    <div class="grow">
+      <h2 class="h2">Приезжайте посмотреть</h2>
+      <p style="font-size:17px;color:#a8a8a8;margin-top:16px;line-height:1.55;max-width:460px">Скажите площадь и назначение — покажем подходящие помещения на любой площадке. Обычно отвечаем в течение часа в рабочее время.</p>
+      <div class="stats" style="margin-top:36px" id="kontakty">
+        <div><div class="cap">Отдел аренды</div>
+          <a class="mono" href="tel:+79626883974" style="color:#fff;font-size:19px;font-weight:600;display:inline-block;margin-top:6px">+7 962 688-39-74</a></div>
+        <div><div class="cap">Почта</div>
+          <a class="mono" href="mailto:info@bastion.spb.ru" style="color:#fff;font-size:19px;font-weight:600;display:inline-block;margin-top:6px">info@bastion.spb.ru</a></div>
+      </div>
+      <div class="row" style="margin-top:28px">
+        <a class="btn auto" style="border-color:#3a3a3a;color:#fff" href="#">Telegram</a>
+        <a class="btn auto" style="border-color:#3a3a3a;color:#fff" href="#">WhatsApp</a>
+      </div>
+    </div>
+
+    <div class="side" style="background:#fff;color:var(--ink);border-radius:var(--r3);padding:32px">
+      <form data-form="home">
+        <div class="h3">Подобрать помещение</div>
+        <div class="cap" style="margin:20px 0 8px">Что нужно</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap" data-chipgroup>
+          <button type="button" class="chip chip-sm">Офис</button>
+          <button type="button" class="chip chip-sm on">Склад</button>
+          <button type="button" class="chip chip-sm">Производство</button>
+          <button type="button" class="chip chip-sm">Торговое</button>
+        </div>
+        <div class="row" style="margin-top:16px">
+          <div class="grow"><div class="cap" style="margin-bottom:6px">Площадь, м²</div><input class="fld" placeholder="от — до"></div>
+          <div class="grow"><div class="cap" style="margin-bottom:6px">Когда заезжать</div><input class="fld" placeholder="в этом месяце"></div>
+        </div>
+        <div style="margin-top:12px"><div class="cap" style="margin-bottom:6px">Телефон</div><input class="fld" type="tel" required placeholder="+7 ___ ___-__-__"></div>
+        <div style="margin-top:12px"><div class="cap" style="margin-bottom:6px">Имя</div><input class="fld" placeholder="Как к вам обращаться"></div>
+        <button class="btn btn-p btn-lg btn-block" style="margin-top:20px" type="submit">Отправить заявку</button>
+        <p class="small" style="margin-top:12px;font-size:12px;color:var(--ink3)">Нажимая кнопку, вы соглашаетесь с политикой обработки персональных данных.</p>
+      </form>
+      <div class="hide" data-form-done="home" style="text-align:center;padding:40px 0">
+        <div class="h3">Заявка отправлена</div>
+        <p class="small" style="margin-top:12px">Менеджер отдела аренды перезвонит на указанный номер.</p>
+        <button class="btn btn-s auto" style="margin-top:24px" data-form-reset>Отправить ещё одну</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ПОДВАЛ ═══ -->
+<footer class="ftr">
+  <div class="wrap">
+    <div class="ftr-cols">
+      <div style="width:300px">
+        <div class="logo">БАСТИОН</div>
+        <p class="small" style="margin-top:14px">Сеть офисно-производственных комплексов класса C+ в Санкт-Петербурге.</p>
+        <p class="small"><span class="need">[Юрлицо, ИНН, ОГРН]</span></p>
+      </div>
+      <div><div class="cap" style="margin-bottom:14px">Площадки</div>
+        <div class="ftr-list">Литовская, 10<br>Менделеевский<br>Ручьи<br>Карпинского, 38к1</div></div>
+      <div><div class="cap" style="margin-bottom:14px">Аренда</div>
+        <div class="ftr-list">Свободные площади<br>Условия аренды<br>Документы<br>Продажа объектов</div></div>
+      <div><div class="cap" style="margin-bottom:14px">Арендаторам</div>
+        <div class="ftr-list">Личный кабинет<br>Пропуска и бланки<br>Заявка инженеру<br>График работы</div></div>
+      <div><div class="cap" style="margin-bottom:14px">Контакты</div>
+        <div class="ftr-list mono">+7 812 333 51 03<br>+7 962 688-39-74<br>info@bastion.spb.ru</div></div>
+    </div>
+    <div class="ftr-btm">
+      <div>© 2026 БАСТИОН · прототип</div>
+      <div>Политика обработки персональных данных · Настройки cookies</div>
+    </div>
+  </div>
+</footer>
+
+<div class="sticky-cta">
+  <a class="btn btn-p" href="katalog.html" style="flex-grow:1">Подобрать помещение</a>
+  <a class="btn btn-s auto" href="tel:+78123335103" style="width:56px;padding:0">☏</a>
+</div>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

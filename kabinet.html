@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Кабинет арендатора — БАСТИОН · прототип</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="assets/bastion.css">
+</head>
+<body>
+
+<header class="hdr" style="background:var(--ink);border-bottom-color:#2b2b2b">
+  <div class="wrap hdr-in">
+    <div style="display:flex;align-items:center;gap:32px">
+      <a class="logo" href="index.html" style="color:#fff">БАСТИОН</a>
+      <span style="padding:5px 12px;border:1px solid #3a3a3a;border-radius:999px;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#fff">Кабинет арендатора</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px">
+      <div class="hdr-cta" style="text-align:right">
+        <div style="font-size:14px;font-weight:600;color:#fff"><span class="need" style="color:#ccc;border-color:#555">[ООО «Компания»]</span></div>
+        <div style="font-size:12px;color:#8a8a8a">БЦ «Ручьи», каб. 307 · 128 м²</div>
+      </div>
+      <div style="width:40px;height:40px;border-radius:50%;background:#2b2b2b;flex-shrink:0"></div>
+      <a href="index.html" style="font-size:13px;color:#8a8a8a">Выйти</a>
+      <button class="burger" data-burger aria-label="Меню" style="border-color:#3a3a3a"><i style="background:#fff"></i><i style="background:#fff"></i><i style="background:#fff"></i></button>
+    </div>
+  </div>
+  <div class="wrap hide" data-mobnav style="padding-bottom:16px">
+    <div class="col" style="gap:0">
+      <a href="index.html" style="padding:12px 0;color:#fff;border-bottom:1px solid #2b2b2b">Площадки</a>
+      <a href="katalog.html" style="padding:12px 0;color:#fff;border-bottom:1px solid #2b2b2b">Свободные площади</a>
+      <a href="sistema.html" style="padding:12px 0;color:#fff">Дизайн-система</a>
+    </div>
+  </div>
+</header>
+
+<div style="background:var(--bg2);border-bottom:1px solid var(--line);padding:16px 0">
+  <div class="wrap">
+    <p class="small" style="margin:0"><strong style="color:var(--ink)">Ключевое решение по структуре.</strong> На текущем сайте пункт меню «Арендаторам» ведёт не арендатора, а потенциального клиента — это витрина объектов. Две воронки, «привлечь» и «обслужить», перепутаны. Здесь они разрезаны: витрина живёт в «Площадках», а действующий арендатор попадает сюда.</p>
+  </div>
+</div>
+
+<div class="wrap" style="padding-top:40px;padding-bottom:28px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px;flex-wrap:wrap">
+    <div>
+      <h1 class="h1">Добрый день</h1>
+      <p class="small" style="margin-top:10px">Ваши помещения, документы, пропуска и заявки в одном месте.</p>
+    </div>
+    <div class="row" style="flex-shrink:0">
+      <a class="btn btn-s auto" href="#novaya">Заявка инженеру</a>
+      <a class="btn btn-p auto" href="#novaya">Заказать пропуск</a>
+    </div>
+  </div>
+
+  <div class="g4" style="margin-top:28px">
+    <div class="card pad" style="padding:20px"><div class="cap">Договор</div>
+      <div class="mono" style="font-size:22px;font-weight:600;margin-top:8px"><span class="need">до [дата]</span></div>
+      <p class="small" style="margin-top:6px">11 месяцев, автопродление по заявлению</p></div>
+    <div class="card pad" style="padding:20px"><div class="cap">Следующий платёж</div>
+      <div class="mono" style="font-size:22px;font-weight:600;margin-top:8px"><span class="need">[сумма] ₽</span></div>
+      <p class="small" style="margin-top:6px">до 5 числа · аренда + электроэнергия</p></div>
+    <div class="card pad" style="padding:20px"><div class="cap">Активные пропуска</div>
+      <div class="mono" style="font-size:22px;font-weight:600;margin-top:8px">12</div>
+      <p class="small" style="margin-top:6px">9 сотрудников, 3 автомобиля</p></div>
+    <div class="card pad" style="padding:20px"><div class="cap">Открытые заявки</div>
+      <div class="mono" style="font-size:22px;font-weight:600;margin-top:8px">1</div>
+      <p class="small" style="margin-top:6px">Не греет батарея, в работе</p></div>
+  </div>
+</div>
+
+<div class="wrap"><div class="tabs" data-tabs="k">
+  <button class="tab on" data-tab="docs">Документы и бланки</button>
+  <button class="tab" data-tab="pass">Пропуска</button>
+  <button class="tab" data-tab="req">Заявки инженеру</button>
+  <button class="tab" data-tab="pay">Оплата</button>
+  <button class="tab" data-tab="mine">Мои помещения</button>
+</div></div>
+
+<!-- ДОКУМЕНТЫ -->
+<section class="wrap split" data-panel="docs" data-scope="k" style="padding-top:44px;padding-bottom:64px">
+  <div class="grow">
+    <h2 class="h2">Документы и бланки</h2>
+    <p class="small" style="margin-top:8px">Всё, что раньше лежало на странице объекта в виде списка из 16 приложений.</p>
+
+    <div class="cap" style="margin-top:32px;margin-bottom:4px">Мой договор</div>
+    <div class="doc"><span class="ext">PDF</span><span class="nm" style="font-weight:500">Договор аренды № <span class="need">[номер]</span></span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">PDF</span><span class="nm" style="font-weight:500">Приложение 2 — переменная часть арендной платы</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">PDF</span><span class="nm" style="font-weight:500">Акт приёма-передачи помещения</span><span class="small">Скачать</span></div>
+
+    <div class="cap" style="margin-top:32px;margin-bottom:4px">Бланки для пропусков</div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Список сотрудников</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Список на получение ключей</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Служебная записка на постоянный автопропуск</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Служебная записка на временный автопропуск</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Пропуск для велосипеда или самоката</span><span class="small">Скачать</span></div>
+
+    <div class="cap" style="margin-top:32px;margin-bottom:4px">Работы и режим</div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Заявка на производство работ</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Служебная записка на ночные работы</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Заявка на допуск подрядчиков</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Заявка на проезд крупногабаритного транспорта в выходной</span><span class="small">Скачать</span></div>
+
+    <div class="cap" style="margin-top:32px;margin-bottom:4px">Пожарная безопасность и охрана труда</div>
+    <div class="doc"><span class="ext">PDF</span><span class="nm">Правила работы арендаторов на объекте</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Приказ об ответственном за пожарную безопасность</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">DOC</span><span class="nm">Приказ об ответственном за охрану труда</span><span class="small">Скачать</span></div>
+    <div class="doc"><span class="ext">PDF</span><span class="nm">Постановление Правительства РФ № 1479 от 16.09.2020</span><span class="small">Скачать</span></div>
+  </div>
+
+  <aside class="side" style="width:360px">
+    <div style="background:var(--bg2);border-radius:var(--r3);padding:24px">
+      <div class="h4">График работы</div>
+      <div style="margin-top:16px">
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)"><span class="small">Пн–Пт</span><span class="mono" style="font-weight:600">07:00–22:00</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)"><span class="small">Сб–Вс</span><span class="mono" style="font-weight:600">09:00–17:00</span></div>
+        <div style="display:flex;justify-content:space-between;padding:10px 0"><span class="small">Охрана</span><span class="mono" style="font-weight:600">круглосуточно</span></div>
+      </div>
+      <div style="background:#fff;border-radius:var(--r2);padding:16px;margin-top:16px">
+        <div class="cap">Ближайшие праздники</div>
+        <p class="small" style="margin-top:8px">Уведомим об изменении графика заранее — здесь и письмом. Раньше это жило в новостях, где его искал не тот человек.</p>
+      </div>
+    </div>
+
+    <div class="card pad" style="margin-top:20px">
+      <div class="h4">Контакты по объекту</div>
+      <div class="col" style="margin-top:16px;gap:14px">
+        <div><div class="cap">Управляющий</div><a class="mono" href="tel:+79062261842" style="font-weight:600;display:block;margin-top:2px">+7 906 226-18-42</a></div>
+        <div><div class="cap">Главный инженер</div><a class="mono" href="tel:+79110811018" style="font-weight:600;display:block;margin-top:2px">+7 911 081-10-18</a></div>
+        <div><div class="cap">Охрана, круглосуточно</div><a class="mono" href="tel:+78122991010" style="font-weight:600;display:block;margin-top:2px">+7 812 299-10-10</a></div>
+        <div><div class="cap">Бухгалтерия</div><div class="mono" style="font-weight:600;margin-top:2px"><span class="need">[телефон]</span></div></div>
+      </div>
+    </div>
+  </aside>
+</section>
+
+<!-- ПРОПУСКА -->
+<section class="wrap hide" data-panel="pass" data-scope="k" style="padding-top:44px;padding-bottom:64px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap">
+    <div><h2 class="h2">Пропуска</h2>
+      <p class="small" style="margin-top:8px">Раньше — распечатать бланк, заполнить, отнести на ресепшн. Теперь — форма и статус.</p></div>
+    <a class="btn btn-p auto" href="#novaya">Заказать пропуск</a>
+  </div>
+  <div class="g3">
+    <div class="card pad" style="padding:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span class="cap">Сотрудники</span><span class="badge badge-free">9 активных</span></div>
+      <div class="col" style="margin-top:16px;gap:10px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px"><span class="ph" style="width:30px;height:30px;border-radius:50%;display:block"></span><span class="need">[Фамилия И. О.]</span></div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px"><span class="ph" style="width:30px;height:30px;border-radius:50%;display:block"></span><span class="need">[Фамилия И. О.]</span></div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:14px"><span class="ph" style="width:30px;height:30px;border-radius:50%;display:block"></span><span class="need">[Фамилия И. О.]</span></div>
+      </div>
+      <button class="btn btn-g btn-sm btn-block" style="margin-top:16px">Показать всех 9</button>
+    </div>
+    <div class="card pad" style="padding:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span class="cap">Автотранспорт</span><span class="badge badge-free">3 активных</span></div>
+      <div class="col" style="margin-top:16px;gap:10px">
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span class="need">[госномер]</span><span class="small">постоянный</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span class="need">[госномер]</span><span class="small">постоянный</span></div>
+        <div style="display:flex;justify-content:space-between;font-size:14px"><span class="need">[госномер]</span><span class="small">до <span class="need">[дата]</span></span></div>
+      </div>
+      <button class="btn btn-g btn-sm btn-block" style="margin-top:16px">Добавить автомобиль</button>
+    </div>
+    <div class="card pad" style="padding:22px">
+      <div style="display:flex;justify-content:space-between;align-items:center"><span class="cap">Разовые</span><span class="badge badge-hold">2 в очереди</span></div>
+      <div class="col" style="margin-top:16px;gap:12px">
+        <div><div style="font-size:14px;font-weight:500">Доставка, крупногабарит</div><div class="small">завтра, 10:00 · согласовано</div></div>
+        <div><div style="font-size:14px;font-weight:500">Подрядчик, монтаж</div><div class="small">суббота · на согласовании</div></div>
+      </div>
+      <button class="btn btn-g btn-sm btn-block" style="margin-top:16px">Заказать разовый</button>
+    </div>
+  </div>
+</section>
+
+<!-- ЗАЯВКИ ИНЖЕНЕРУ -->
+<section class="wrap split hide" data-panel="req" data-scope="k" style="padding-top:44px;padding-bottom:64px">
+  <div class="grow">
+    <h2 class="h2">Заявки в службу эксплуатации</h2>
+    <p class="small" style="margin-top:8px">Раньше — звонок главному инженеру и надежда, что не забудут. Теперь — заявка со статусом.</p>
+    <div style="margin-top:28px">
+      <div style="display:flex;gap:20px;padding:20px;border:1px solid var(--line);border-radius:var(--r3);margin-bottom:12px;flex-wrap:wrap">
+        <div class="grow">
+          <div style="display:flex;align-items:center;gap:10px"><span class="badge badge-free">в работе</span><span class="mono cap">№ 148</span></div>
+          <div class="h4" style="margin-top:10px">Не греет батарея в дальнем кабинете</div>
+          <p class="small" style="margin-top:6px">Создана вчера в 14:20 · инженер принял в работу сегодня в 09:05</p>
+        </div>
+        <button class="btn btn-g btn-sm auto" style="flex-shrink:0">Открыть</button>
+      </div>
+      <div style="display:flex;gap:20px;padding:20px;border:1px solid var(--line);border-radius:var(--r3);opacity:.6;flex-wrap:wrap">
+        <div class="grow">
+          <div style="display:flex;align-items:center;gap:10px"><span class="badge badge-hold">закрыта</span><span class="mono cap">№ 141</span></div>
+          <div class="h4" style="margin-top:10px">Перегорела лампа в коридоре</div>
+          <p class="small" style="margin-top:6px">Закрыта 28 августа, за один день</p>
+        </div>
+        <button class="btn btn-g btn-sm auto" style="flex-shrink:0">Открыть</button>
+      </div>
+    </div>
+  </div>
+
+  <aside class="side" style="width:420px" id="novaya">
+    <div style="border:1px solid var(--ink);border-radius:var(--r3);padding:24px">
+      <form data-form="eng">
+        <div class="h4">Новая заявка</div>
+        <div class="cap" style="margin:18px 0 6px">Что случилось</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap" data-chipgroup>
+          <button type="button" class="chip chip-sm on">Отопление</button>
+          <button type="button" class="chip chip-sm">Электрика</button>
+          <button type="button" class="chip chip-sm">Вода</button>
+          <button type="button" class="chip chip-sm">Замок, дверь</button>
+          <button type="button" class="chip chip-sm">Другое</button>
+        </div>
+        <div style="margin-top:12px"><div class="cap" style="margin-bottom:6px">Помещение</div><input class="fld" value="Ручьи, каб. 307"></div>
+        <div style="margin-top:12px"><div class="cap" style="margin-bottom:6px">Описание</div><textarea class="fld" required placeholder="Опишите, что не работает"></textarea></div>
+        <div style="margin-top:12px"><div class="cap" style="margin-bottom:6px">Когда удобно</div><input class="fld" placeholder="В рабочее время, любой день"></div>
+        <button class="btn btn-p btn-block" style="margin-top:18px" type="submit">Отправить заявку</button>
+      </form>
+      <div class="hide" data-form-done="eng" style="text-align:center;padding:30px 0">
+        <div class="h3">Заявка создана</div>
+        <p class="small" style="margin-top:10px">Номер <span class="mono" style="font-weight:600">№ 149</span>. Инженер увидит её сразу, статус будет здесь.</p>
+        <button class="btn btn-g btn-sm auto" style="margin-top:18px" data-form-reset>Создать ещё одну</button>
+      </div>
+    </div>
+    <div style="background:var(--bg2);border-radius:var(--r3);padding:20px;margin-top:16px">
+      <p class="small" style="margin:0"><strong style="color:var(--ink)">Аварийная ситуация</strong> — звоните напрямую, не через форму.</p>
+      <a class="mono" href="tel:+79110811018" style="font-size:18px;font-weight:600;display:inline-block;margin-top:8px">+7 911 081-10-18</a>
+    </div>
+  </aside>
+</section>
+
+<!-- ОПЛАТА -->
+<section class="wrap hide" data-panel="pay" data-scope="k" style="padding-top:44px;padding-bottom:64px">
+  <h2 class="h2">Оплата и документы</h2>
+  <p class="small" style="margin-top:8px">Счета, акты и показания счётчика в одном месте — вместо переписки с бухгалтерией.</p>
+  <div class="split" style="margin-top:28px;gap:20px">
+    <div class="card pad grow">
+      <div class="cap">К оплате до 5 числа</div>
+      <div class="mono" style="font-size:32px;font-weight:600;margin-top:10px"><span class="need">[сумма] ₽</span></div>
+      <div style="margin-top:16px">
+        <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line2)"><span class="small">Аренда, 128 м²</span><span class="mono" style="font-size:14px"><span class="need">[сумма]</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line2)"><span class="small">Электроэнергия по счётчику</span><span class="mono" style="font-size:14px"><span class="need">[сумма]</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:9px 0"><span class="small">Вывоз мусора</span><span class="mono" style="font-size:14px"><span class="need">[сумма]</span></span></div>
+      </div>
+      <div class="row" style="margin-top:18px">
+        <button class="btn btn-p grow">Скачать счёт</button>
+        <button class="btn btn-g grow">Акт сверки</button>
+      </div>
+    </div>
+    <div class="card pad side" style="width:380px">
+      <div class="h4">Показания счётчика</div>
+      <p class="small" style="margin-top:8px">Передавайте до 25 числа, чтобы счёт пришёл вовремя.</p>
+      <div class="row" style="margin-top:18px">
+        <input class="fld grow" placeholder="Текущее показание">
+        <button class="btn btn-s auto">Передать</button>
+      </div>
+      <div style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line)">
+        <div class="cap" style="margin-bottom:8px">История</div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0"><span class="small">Август</span><span class="mono" style="font-size:13px"><span class="need">[кВт·ч]</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0"><span class="small">Июль</span><span class="mono" style="font-size:13px"><span class="need">[кВт·ч]</span></span></div>
+        <div style="display:flex;justify-content:space-between;padding:7px 0"><span class="small">Июнь</span><span class="mono" style="font-size:13px"><span class="need">[кВт·ч]</span></span></div>
+      </div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:20px">
+    <p class="small" style="margin:0"><strong style="color:var(--ink)">Заказчику.</strong> Этот раздел — самый дорогой в разработке и требует интеграции с 1С или учётной системой. Если её нет, на первом этапе вместо него ставим простой блок «реквизиты и контакт бухгалтерии», а раздел включаем во вторую очередь.</p>
+  </div>
+</section>
+
+<!-- МОИ ПОМЕЩЕНИЯ -->
+<section class="wrap hide" data-panel="mine" data-scope="k" style="padding-top:44px;padding-bottom:64px">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:24px;flex-wrap:wrap">
+    <div><h2 class="h2">Мои помещения</h2>
+      <p class="small" style="margin-top:8px">Что арендуете сейчас и что можно занять рядом, если растёте.</p></div>
+    <button class="btn btn-s auto">Запросить расширение</button>
+  </div>
+
+  <div class="card pad" style="margin-bottom:20px">
+    <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+      <div class="ph" style="width:180px;height:120px;border-radius:var(--r2);flex-shrink:0"></div>
+      <div class="grow">
+        <div style="display:flex;align-items:center;gap:10px"><span class="badge badge-free">арендуется</span><span class="mono cap">R13-485</span></div>
+        <div class="h3" style="margin-top:10px">Офис 307 — 128 м²</div>
+        <p class="small" style="margin-top:6px">БЦ «Ручьи», 3 этаж, АБК · договор до <span class="need">[дата]</span></p>
+      </div>
+      <div class="row" style="flex-shrink:0">
+        <button class="btn btn-g btn-sm auto">Планировка</button>
+        <button class="btn btn-g btn-sm auto">Договор</button>
+      </div>
+    </div>
+  </div>
+
+  <div style="background:var(--bg2);border-radius:var(--r3);padding:24px">
+    <div class="h4">Свободно рядом с вами</div>
+    <p class="small" style="margin-top:6px">Помещения на той же площадке — можно расшириться, не переезжая.</p>
+    <div class="g3" style="gap:16px;margin-top:18px">
+      <a href="pomeshchenie.html" style="background:#fff;border-radius:var(--r2);padding:18px;display:block">
+        <div class="mono" style="font-size:20px;font-weight:600">100,00 м²</div>
+        <div class="small" style="margin-top:4px">Офис · 4 этаж</div>
+        <div class="btn btn-g btn-sm btn-block" style="margin-top:14px">Посмотреть</div></a>
+      <a href="pomeshchenie.html" style="background:#fff;border-radius:var(--r2);padding:18px;display:block">
+        <div class="mono" style="font-size:20px;font-weight:600">49,00 м²</div>
+        <div class="small" style="margin-top:4px">Офис · 10 этаж</div>
+        <div class="btn btn-g btn-sm btn-block" style="margin-top:14px">Посмотреть</div></a>
+      <a href="pomeshchenie.html" style="background:#fff;border-radius:var(--r2);padding:18px;display:block">
+        <div class="mono" style="font-size:20px;font-weight:600">15,50 м²</div>
+        <div class="small" style="margin-top:4px">Склад · 1 этаж</div>
+        <div class="btn btn-g btn-sm btn-block" style="margin-top:14px">Посмотреть</div></a>
+    </div>
+  </div>
+</section>
+
+<footer class="ftr">
+  <div class="wrap ftr-btm" style="margin-top:0;border-top:none;padding-top:0">
+    <div>© 2026 БАСТИОН · кабинет арендатора · прототип</div>
+    <div class="mono">+7 812 333 51 03 · info@bastion.spb.ru</div>
+  </div>
+</footer>
+
+<script src="assets/app.js"></script>
+</body>
+</html>

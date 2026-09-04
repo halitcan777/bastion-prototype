@@ -1,0 +1,289 @@
+/* ============================================================
+   БАСТИОН · дизайн-система прототипа
+   Один акцент — один токен. Смена --accent перекрашивает сайт.
+   ============================================================ */
+
+:root{
+  /* цвет */
+  --ink:#0f0f0f;
+  --ink2:#545454;
+  --ink3:#8a8a8a;
+  --ink4:#bcbcbc;
+  --line:#dedede;
+  --line2:#efefef;
+  --bg:#ffffff;
+  --bg2:#f6f6f6;
+  --bg3:#ececec;
+  --accent:#0f0f0f;
+  --on-accent:#ffffff;
+
+  /* скругления */
+  --r1:4px; --r2:8px; --r3:12px;
+
+  /* отступы */
+  --s1:4px; --s2:8px; --s3:12px; --s4:16px; --s5:24px;
+  --s6:32px; --s7:48px; --s8:64px; --s9:96px;
+
+  /* сетка */
+  --pad:64px;
+  --maxw:1440px;
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'IBM Plex Sans','Helvetica Neue',Arial,sans-serif;
+  font-size:15px;
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%}
+a{color:var(--ink);text-decoration:none}
+a:hover{color:var(--ink2)}
+p{margin:0 0 14px}
+
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:'IBM Plex Mono',ui-monospace,Menlo,monospace;font-variant-numeric:tabular-nums}
+
+/* ---------- типографика ---------- */
+.d1{font-size:48px;line-height:1.06;font-weight:700;letter-spacing:-.025em;margin:0}
+.h1{font-size:36px;line-height:1.12;font-weight:700;letter-spacing:-.02em;margin:0}
+.h2{font-size:28px;line-height:1.18;font-weight:600;letter-spacing:-.015em;margin:0}
+.h3{font-size:22px;line-height:1.25;font-weight:600;letter-spacing:-.01em;margin:0}
+.h4{font-size:17px;line-height:1.35;font-weight:600;margin:0}
+.small{font-size:13px;line-height:1.5;color:var(--ink2)}
+.cap{font-size:11px;line-height:1.3;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+.lead{font-size:17px;line-height:1.55;color:var(--ink2)}
+.prose{max-width:66ch}
+
+/* ---------- кнопки ---------- */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  height:44px;padding:0 22px;border-radius:var(--r2);
+  font-size:14px;font-weight:600;font-family:inherit;
+  border:1px solid transparent;cursor:pointer;white-space:nowrap;
+  transition:background .12s,border-color .12s,color .12s;
+}
+.btn:focus-visible{outline:2px solid var(--ink);outline-offset:2px}
+.btn-p{background:var(--accent);color:var(--on-accent)}
+.btn-p:hover{filter:brightness(1.3)}
+.btn-s{background:var(--bg);color:var(--ink);border-color:var(--ink)}
+.btn-s:hover{background:var(--bg2);color:var(--ink)}
+.btn-g{background:transparent;color:var(--ink2);border-color:var(--line)}
+.btn-g:hover{color:var(--ink);border-color:var(--ink3)}
+.btn-lg{height:52px;padding:0 28px;font-size:15px}
+.btn-sm{height:36px;padding:0 16px;font-size:13px;border-radius:var(--r1)}
+.btn-block{width:100%}
+.btn[disabled],.btn.is-off{opacity:.35;pointer-events:none}
+
+/* ---------- поля ---------- */
+.fld{
+  height:44px;padding:0 14px;width:100%;
+  border:1px solid var(--line);border-radius:var(--r2);
+  background:var(--bg);font-size:14px;font-family:inherit;color:var(--ink);
+  display:flex;align-items:center;
+}
+.fld::placeholder{color:var(--ink3)}
+.fld:hover{border-color:var(--ink4)}
+.fld:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px rgba(15,15,15,.09)}
+textarea.fld{height:88px;padding:12px 14px;display:block;resize:vertical;line-height:1.5}
+
+/* ---------- чипы ---------- */
+.chip{
+  display:inline-flex;align-items:center;gap:7px;
+  height:38px;padding:0 16px;border:1px solid var(--line);border-radius:999px;
+  font-size:14px;font-family:inherit;color:var(--ink2);background:var(--bg);
+  cursor:pointer;user-select:none;transition:.12s;white-space:nowrap;
+}
+.chip:hover{border-color:var(--ink3);color:var(--ink)}
+.chip.on{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.chip .n{font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6}
+.chip-sm{height:34px;padding:0 14px;font-size:13px}
+
+/* ---------- карточки ---------- */
+.card{border:1px solid var(--line);border-radius:var(--r3);background:var(--bg);overflow:hidden;transition:border-color .12s}
+.card:hover{border-color:var(--ink3)}
+.card.on{border-color:var(--ink);box-shadow:0 0 0 1px var(--ink)}
+.pad{padding:24px}
+
+/* ---------- бейджи ---------- */
+.badge{display:inline-flex;align-items:center;height:24px;padding:0 10px;border-radius:var(--r1);font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.badge-free{background:var(--accent);color:var(--on-accent)}
+.badge-hold{background:var(--bg3);color:var(--ink2)}
+.badge-busy{border:1px solid var(--line);color:var(--ink3)}
+
+/* ---------- заглушки и маркеры ---------- */
+.ph{
+  background:var(--bg2);border:1px solid var(--line);
+  background-image:
+    linear-gradient(to top right,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px)),
+    linear-gradient(to bottom right,transparent calc(50% - .5px),var(--line) 50%,transparent calc(50% + .5px));
+}
+.need{color:var(--ink3);border-bottom:1px dashed var(--ink4)}
+.bar{background:var(--bg3);height:10px;border-radius:2px}
+
+/* ---------- шапка ---------- */
+.hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
+.hdr-in{display:flex;align-items:center;justify-content:space-between;gap:32px;height:76px}
+.logo{font-size:19px;font-weight:700;letter-spacing:.14em}
+.nav{display:flex;gap:26px;font-size:14px}
+.nav a{color:var(--ink2)}
+.nav a:hover{color:var(--ink)}
+.nav a.on{color:var(--ink);font-weight:600}
+.burger{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r2);align-items:center;justify-content:center;flex-direction:column;gap:4px;cursor:pointer;background:none}
+.burger i{display:block;width:16px;height:1.5px;background:var(--ink)}
+
+/* ---------- секции ---------- */
+.sec{padding:72px 0}
+.sec-tight{padding:48px 0}
+.sec-grey{background:var(--bg2)}
+.sec-dark{background:var(--ink);color:#fff}
+.sec-dark .h2,.sec-dark .h3,.sec-dark .h4{color:#fff}
+.sec-dark .small{color:#a8a8a8}
+.sec-dark .cap{color:#6e6e6e}
+.rule{border-top:1px solid var(--line)}
+
+/* ---------- статы ---------- */
+.stats{display:flex;gap:40px;flex-wrap:wrap}
+.stat-n{font-family:'IBM Plex Mono',monospace;font-size:34px;font-weight:600;line-height:1;font-variant-numeric:tabular-nums}
+.statbox{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r3);overflow:hidden}
+.statbox>div{background:var(--bg);padding:18px}
+
+/* ---------- таблица ---------- */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{
+  text-align:left;padding:12px 10px;font-size:11px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink3);font-weight:500;border-bottom:1px solid var(--ink);white-space:nowrap;
+}
+.tbl td{padding:14px 10px;font-size:14px;border-bottom:1px solid var(--line2);vertical-align:middle}
+.tbl tbody tr{cursor:pointer}
+.tbl tbody tr:hover{background:var(--bg2)}
+.tbl tbody tr.hold{opacity:.55}
+.tbl .r{text-align:right}
+.tbl .num{font-family:'IBM Plex Mono',monospace;font-variant-numeric:tabular-nums;font-weight:600}
+
+/* ---------- табы ---------- */
+.tabs{display:flex;gap:32px;border-bottom:1px solid var(--line);overflow-x:auto}
+.tab{
+  padding:18px 2px 16px;font-size:15px;font-weight:500;font-family:inherit;
+  color:var(--ink3);background:none;border:none;border-bottom:2px solid transparent;
+  cursor:pointer;white-space:nowrap;
+}
+.tab:hover{color:var(--ink2)}
+.tab.on{color:var(--ink);font-weight:600;border-bottom-color:var(--ink)}
+.tab .n{font-family:'IBM Plex Mono',monospace;font-size:12px;margin-left:6px;opacity:.55}
+
+/* ---------- карта ---------- */
+.map{position:relative;height:480px;border:1px solid var(--line);border-radius:var(--r3);background:var(--bg2);overflow:hidden}
+.map-kad{position:absolute;width:1100px;height:1100px;left:-180px;top:60px;border:1px dashed #d2d2d2;border-radius:50%}
+.map-road{position:absolute;background:#e2e2e2}
+.map-neva{position:absolute;left:-6%;right:-6%;bottom:8%;height:30px;background:#e6e6e6;border-radius:999px;transform:rotate(-2deg)}
+.pin{position:absolute;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;width:14px;height:14px;background:#fff;border:2px solid var(--ink);transition:.12s;padding:0}
+.pin.on{width:18px;height:18px;background:var(--accent);border-color:var(--accent);box-shadow:0 0 0 6px rgba(15,15,15,.12)}
+.pin-lab{position:absolute;left:28px;top:-13px;white-space:nowrap;font-size:13px;font-weight:500;color:var(--ink2);text-align:left;pointer-events:none}
+.pin.on .pin-lab{font-size:15px;font-weight:600;color:var(--ink)}
+.map-card{position:absolute;left:20px;bottom:20px;width:340px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r2);padding:20px}
+
+/* ---------- аккордеон ---------- */
+.acc{border-bottom:1px solid var(--line)}
+.acc-q{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 0;cursor:pointer;width:100%;background:none;border:none;font-family:inherit;text-align:left}
+.acc-sign{font-size:22px;color:var(--ink3);flex-shrink:0;transition:transform .15s}
+.acc.on .acc-sign{transform:rotate(45deg);color:var(--ink)}
+.acc-a{display:none;padding:0 0 24px;max-width:72ch;color:var(--ink2);line-height:1.6}
+.acc.on .acc-a{display:block}
+
+/* ---------- фасеты ---------- */
+.fgroup{padding:18px 0;border-bottom:1px solid var(--line2)}
+.opt{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--ink2);cursor:pointer;user-select:none;padding:6px 0;width:100%;background:none;border:none;font-family:inherit;text-align:left}
+.opt:hover{color:var(--ink)}
+.opt .box{width:16px;height:16px;border:1px solid var(--ink4);border-radius:var(--r1);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;line-height:1}
+.opt.on .box{background:var(--accent);border-color:var(--accent)}
+.opt .n{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink3)}
+.opt.dead{color:var(--ink4);cursor:default}
+.opt.dead .box{border-color:var(--line)}
+
+/* ---------- спеки и документы ---------- */
+.spec{display:grid;grid-template-columns:1fr auto;gap:16px;padding:13px 0;border-bottom:1px solid var(--line2);font-size:14px;align-items:center}
+.doc{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line2);font-size:14px;cursor:pointer}
+.doc:hover{background:var(--bg2)}
+.doc .ext{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink3);width:34px;flex-shrink:0}
+.doc .nm{flex-grow:1}
+
+/* ---------- сетки ---------- */
+.g2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.g3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.g4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.g5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.row{display:flex;gap:16px}
+.col{display:flex;flex-direction:column;gap:12px}
+.split{display:flex;gap:56px;align-items:flex-start}
+.side{width:400px;flex-shrink:0}
+.side-sm{width:264px;flex-shrink:0}
+.grow{flex-grow:1;min-width:0}
+
+/* ---------- разное ---------- */
+.note{border:1px dashed var(--ink4);border-radius:var(--r3);padding:18px;background:var(--bg2)}
+.crumbs{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:500;padding:24px 0 0}
+.crumbs a{color:var(--ink3)}
+.crumbs a:hover{color:var(--ink)}
+.ftr{border-top:1px solid var(--line);padding:56px 0 40px}
+.ftr-cols{display:flex;gap:64px;justify-content:space-between;flex-wrap:wrap}
+.ftr-list{line-height:2;font-size:13px;color:var(--ink2)}
+.ftr-btm{display:flex;justify-content:space-between;gap:24px;margin-top:40px;padding-top:24px;border-top:1px solid var(--line);font-size:12px;color:var(--ink3);flex-wrap:wrap}
+.thumbs{display:flex;gap:10px;flex-wrap:wrap}
+.thumb{width:120px;height:80px;border-radius:var(--r2);cursor:pointer;opacity:.7;padding:0;transition:.12s}
+.thumb.on{opacity:1;outline:2px solid var(--ink);outline-offset:2px}
+.hide{display:none !important}
+.empty{padding:80px 40px;text-align:center;border:1px dashed var(--line);border-radius:var(--r3);margin-top:24px}
+.sticky-cta{display:none}
+
+/* ---------- адаптив ---------- */
+@media (max-width:1240px){
+  :root{--pad:32px}
+  .d1{font-size:40px}
+  .side{width:360px}
+  .split{gap:32px}
+  .g5{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+
+@media (max-width:1000px){
+  .nav{display:none}
+  .burger{display:flex}
+  .split{flex-direction:column}
+  .side,.side-sm{width:100%}
+  .g3,.g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .map{height:420px}
+  .hdr-in .hdr-cta{display:none}
+}
+
+@media (max-width:680px){
+  :root{--pad:16px}
+  body{font-size:15px}
+  .d1{font-size:31px}
+  .h1{font-size:27px}
+  .h2{font-size:23px}
+  .h3{font-size:19px}
+  .sec{padding:44px 0}
+  .g2,.g3,.g4,.g5{grid-template-columns:1fr}
+  .stats{gap:20px 28px}
+  .stat-n{font-size:26px}
+  .map{height:340px}
+  .map-card{left:12px;right:12px;bottom:12px;width:auto}
+  .pin-lab{display:none}
+  .row{flex-wrap:wrap}
+  .btn{width:100%}
+  .btn.auto{width:auto}
+  .tbl thead{display:none}
+  .tbl tbody tr{display:block;border:1px solid var(--line);border-radius:var(--r3);margin-bottom:12px;padding:8px 4px}
+  .tbl td{display:flex;justify-content:space-between;gap:16px;border:none;padding:8px 12px}
+  .tbl td::before{content:attr(data-l);font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink3);font-weight:500}
+  .tbl td.r{text-align:right}
+  .ftr-cols{gap:32px}
+  .sticky-cta{
+    display:flex;gap:8px;position:sticky;bottom:0;z-index:40;
+    padding:12px var(--pad);background:var(--bg);border-top:1px solid var(--line);
+  }
+}
