@@ -153,7 +153,7 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 .topbar a{color:rgba(255,255,255,.72)}
 .topbar a:hover{color:var(--gold)}
 .topbar-in{display:flex;justify-content:space-between;gap:20px;padding-top:10px;padding-bottom:10px;flex-wrap:wrap}
-.hdr{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.hdr{position:sticky;top:0;z-index:50;background:var(--bg);border-bottom:1px solid var(--line)}
 .hdr-in{display:flex;align-items:center;justify-content:space-between;gap:24px;height:92px}
 .logo{display:flex;align-items:center;flex-shrink:0}
 .logo img{height:56px;width:auto;flex-shrink:0}
@@ -211,12 +211,12 @@ textarea.fld{height:96px;padding:12px 16px;display:block;resize:vertical;line-he
 
 /* ---------- карта ---------- */
 .map{position:relative;height:500px;border:1px solid var(--line);border-radius:var(--r3);background:var(--bg2);overflow:hidden}
-.map-kad{position:absolute;width:1100px;height:1100px;left:-180px;top:60px;border:1px dashed var(--ink4);opacity:.5;border-radius:50%}
-.map-road{position:absolute;background:var(--line)}
-.map-neva{position:absolute;left:-6%;right:-6%;bottom:8%;height:32px;background:var(--bg3);border-radius:999px;transform:rotate(-2deg)}
+.map-kad{position:absolute;width:900px;height:900px;left:-120px;top:40px;border:1px dashed var(--ink4);opacity:.55;border-radius:50%}
+.map-road{position:absolute;background:var(--ink4);opacity:.45}
+.map-neva{position:absolute;left:-8%;right:-8%;bottom:6%;height:28px;background:var(--bg3);border-radius:999px;transform:rotate(-3deg)}
 .pin{position:absolute;transform:translate(-50%,-50%);border-radius:50%;cursor:pointer;width:14px;height:14px;background:#fff;border:2px solid var(--brand);transition:.14s;padding:0}
 .pin.on{width:20px;height:20px;background:var(--gold);border-color:var(--brand);box-shadow:0 0 0 7px rgba(215,181,109,.28)}
-.pin-lab{position:absolute;left:26px;top:-11px;white-space:nowrap;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink2);text-align:left;pointer-events:none}
+.pin-lab{position:absolute;left:24px;top:-12px;white-space:nowrap;font-family:var(--sans);font-size:13px;font-weight:600;color:var(--ink2);text-align:left;pointer-events:none}
 .pin.on .pin-lab{color:var(--brand-dk);font-weight:700}
 .pin.flip .pin-lab{left:auto;right:26px;text-align:right}
 .map-card{position:absolute;left:22px;bottom:22px;width:350px;background:var(--bg);border:1px solid var(--line);border-radius:var(--r2);padding:22px;box-shadow:0 10px 34px rgba(93,72,70,.12)}

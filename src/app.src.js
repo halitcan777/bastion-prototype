@@ -141,7 +141,7 @@
     SITES.forEach(function (s) {
       var pin = document.createElement('button');
       pin.type = 'button';
-      pin.className = 'pin' + (s.x > 55 ? ' flip' : '');
+      pin.className = 'pin' + (s.x > 60 ? ' flip' : '');
       pin.setAttribute('data-pin', s.id);
       pin.style.left = s.x + '%';
       pin.style.top = s.y + '%';
